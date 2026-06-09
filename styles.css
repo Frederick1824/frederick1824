@@ -121,6 +121,23 @@ h1 {
   font-size: clamp(3.8rem, 9vw, 7.6rem);
 }
 
+.hero-branding {
+  margin: 0 0 1.4rem;
+}
+
+.hero-branding img {
+  display: block;
+  width: min(100%, 560px);
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 16px 36px rgba(17, 17, 17, 0.12);
+}
+
+.hero h1 {
+  max-width: none;
+  font-size: clamp(2.5rem, 5vw, 4.4rem);
+}
+
 h2 {
   max-width: 14ch;
   font-size: clamp(2.2rem, 5vw, 4.5rem);
@@ -345,6 +362,83 @@ h2 {
   height: 1.4rem;
   background: var(--beige);
   border: 1px solid var(--red);
+}
+
+.about-section {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  border-block: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.about-heading {
+  margin-bottom: 2rem;
+}
+
+.about-heading h2 {
+  max-width: none;
+  text-transform: uppercase;
+}
+
+.about-heading h2::after {
+  display: block;
+  width: 3.2rem;
+  height: 2px;
+  margin-top: 0.75rem;
+  background: var(--red);
+  content: "";
+}
+
+.about-copy {
+  max-width: 58rem;
+  color: var(--muted);
+  font-size: 1.04rem;
+}
+
+.about-copy p {
+  margin: 0 0 1rem;
+}
+
+.about-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.about-facts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2.25rem;
+}
+
+.about-fact {
+  min-height: 10rem;
+  padding: 1.15rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 14px 32px rgba(17, 17, 17, 0.05);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.about-fact:hover {
+  transform: translateY(-4px);
+  border-color: rgba(198, 40, 45, 0.35);
+  box-shadow: 0 20px 40px rgba(17, 17, 17, 0.08);
+}
+
+.about-fact h3 {
+  color: var(--red);
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.about-fact p {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
 }
 
 .profile-section,
@@ -826,7 +920,8 @@ a.project-action:hover {
 
   .skill-grid,
   .project-grid,
-  .project-grid.compact {
+  .project-grid.compact,
+  .about-facts {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -854,8 +949,9 @@ a.project-action:hover {
     padding-top: 2.5rem;
   }
 
-  h1 {
-    font-size: clamp(3.1rem, 18vw, 4.6rem);
+  .hero-branding img {
+    width: 100%;
+    max-width: 360px;
   }
 
   h2 {
@@ -882,7 +978,8 @@ a.project-action:hover {
   .mini-card-grid,
   .project-grid,
   .project-grid.compact,
-  .academic-portal-grid {
+  .academic-portal-grid,
+  .about-facts {
     grid-template-columns: 1fr;
   }
 
