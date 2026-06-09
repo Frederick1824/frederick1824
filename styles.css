@@ -641,12 +641,101 @@ a.project-action:hover {
 
 .academic-block {
   margin-top: 1.5rem;
+  scroll-margin-top: 7rem;
 }
 
 .academic-block > h4 {
   margin-bottom: 0.8rem;
   color: var(--red);
   font-size: 1.1rem;
+}
+
+.academic-education {
+  margin-top: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.academic-education-heading {
+  margin-bottom: 1.5rem;
+}
+
+.academic-education-heading h2 {
+  max-width: none;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.academic-education-heading h2::after {
+  display: block;
+  width: 3.2rem;
+  height: 2px;
+  margin-top: 0.75rem;
+  background: var(--red);
+  content: "";
+}
+
+.academic-portal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.academic-portal-card {
+  display: flex;
+  min-height: 27rem;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 16px 38px rgba(17, 17, 17, 0.05);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+.academic-portal-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(198, 40, 45, 0.35);
+  box-shadow: 0 22px 46px rgba(17, 17, 17, 0.08);
+}
+
+.academic-logo-wrap {
+  display: grid;
+  min-height: 13rem;
+  place-items: center;
+  padding: 1.75rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+}
+
+.academic-logo {
+  width: auto;
+  max-width: min(100%, 17rem);
+  max-height: 9rem;
+  object-fit: contain;
+}
+
+.academic-portal-content {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 1.35rem;
+}
+
+.academic-portal-content h3 {
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.academic-portal-content p {
+  margin: 0.8rem 0 1.25rem;
+  color: var(--muted);
+}
+
+.academic-portal-link {
+  margin-top: auto;
 }
 
 .site-footer {
@@ -764,7 +853,8 @@ a.project-action:hover {
   .skill-grid,
   .mini-card-grid,
   .project-grid,
-  .project-grid.compact {
+  .project-grid.compact,
+  .academic-portal-grid {
     grid-template-columns: 1fr;
   }
 
