@@ -455,6 +455,21 @@ h2 {
   padding: clamp(4rem, 7vw, 6rem) 0;
 }
 
+.lab-branding {
+  display: flex;
+  grid-column: 1 / -1;
+  justify-content: center;
+  margin: 0;
+}
+
+.lab-branding img {
+  display: block;
+  width: min(100%, 620px);
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 16px 36px rgba(17, 17, 17, 0.12);
+}
+
 .lab-copy p:not(.eyebrow) {
   max-width: 39rem;
   color: var(--muted);
@@ -828,6 +843,11 @@ a.project-action:hover {
 
   .section-shell {
     width: min(100% - 1.25rem, 1160px);
+  }
+
+  .lab-branding img {
+    width: 100%;
+    max-width: 360px;
   }
 
   .hero {
