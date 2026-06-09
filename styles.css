@@ -664,6 +664,13 @@ a.project-action:hover {
   font-size: clamp(2rem, 4vw, 3.4rem);
 }
 
+.academic-education-heading > p {
+  max-width: 42rem;
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
 .academic-education-heading h2::after {
   display: block;
   width: 3.2rem;
