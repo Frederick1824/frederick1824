@@ -613,6 +613,176 @@ h2 {
   font-weight: 700;
 }
 
+.work-experience-section {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  scroll-margin-top: 6rem;
+}
+
+.work-experience-card {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--line);
+  border-radius: 1.4rem;
+  background: var(--card-background-strong);
+  box-shadow: var(--shadow);
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition),
+    box-shadow var(--theme-transition);
+}
+
+.work-experience-card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42%;
+  height: 3px;
+  background: var(--red);
+  content: "";
+}
+
+.work-experience-card::after {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--lilac);
+  content: "";
+}
+
+.work-experience-copy,
+.work-experience-strengths {
+  min-width: 0;
+}
+
+.work-experience-copy h2 {
+  max-width: none;
+  font-size: clamp(2.1rem, 4.5vw, 4rem);
+}
+
+.work-experience-copy h2::after {
+  display: block;
+  width: 3.2rem;
+  height: 2px;
+  margin-top: 0.75rem;
+  background: var(--red);
+  content: "";
+}
+
+.work-experience-subtitle {
+  margin: 1.25rem 0 0;
+  color: var(--red);
+  font-weight: 800;
+}
+
+.work-experience-text {
+  max-width: 47rem;
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.work-experience-text p {
+  margin: 0 0 1rem;
+}
+
+.work-experience-text p:last-child {
+  margin-bottom: 0;
+}
+
+.work-experience-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.work-experience-strengths {
+  align-self: center;
+  padding: 1.35rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--pill-background);
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition);
+}
+
+.work-experience-strengths > p {
+  margin: 0 0 1rem;
+  color: var(--lilac);
+  font-family: "Syne", "Montserrat", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.work-experience-strengths ul {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-experience-strengths li {
+  position: relative;
+  padding: 0.75rem 0.85rem 0.75rem 2rem;
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+  background: var(--card-background);
+  color: var(--ink);
+  font-weight: 700;
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition);
+}
+
+.work-experience-strengths li::before {
+  position: absolute;
+  top: 50%;
+  left: 0.85rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--red);
+  content: "";
+  transform: translateY(-50%);
+}
+
+.work-experience-strengths li:nth-child(even)::before {
+  background: var(--lilac);
+}
+
+body.dark-mode .work-experience-card {
+  color: #f3f3f3;
+}
+
+body.dark-mode .work-experience-text {
+  color: #b8b8b8;
+}
+
+body.dark-mode .work-experience-strengths {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #1b1b1b;
+}
+
+body.dark-mode .work-experience-strengths li {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #232323;
+  color: #f3f3f3;
+}
+
 .profile-section,
 .projects-section {
   padding: clamp(4rem, 8vw, 7rem) 0;
@@ -1124,7 +1294,8 @@ body.dark-mode .academic-portal-card-ispc:hover {
   }
 
   .hero,
-  .lab-layout {
+  .lab-layout,
+  .work-experience-card {
     grid-template-columns: 1fr;
   }
 
@@ -1187,7 +1358,17 @@ body.dark-mode .academic-portal-card-ispc:hover {
     font-size: 2.25rem;
   }
 
+  .work-experience-card {
+    padding: 1.25rem;
+  }
+
+  .work-experience-copy h2 {
+    font-size: clamp(1.9rem, 9vw, 2.25rem);
+    letter-spacing: -0.02em;
+  }
+
   .hero-actions,
+  .work-experience-actions,
   .site-footer,
   .site-footer nav {
     align-items: stretch;
