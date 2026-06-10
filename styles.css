@@ -10,6 +10,36 @@
   --beige: #efe2c8;
   --white: #ffffff;
   --shadow: 0 24px 60px rgba(17, 17, 17, 0.09);
+  --body-background:
+    radial-gradient(circle at top left, rgba(199, 184, 234, 0.16), transparent 30rem),
+    linear-gradient(180deg, var(--paper) 0%, #fffdf8 100%);
+  --header-background: rgba(250, 250, 247, 0.88);
+  --header-border: rgba(229, 224, 215, 0.75);
+  --section-background: rgba(255, 255, 255, 0.48);
+  --card-background: rgba(255, 255, 255, 0.72);
+  --card-background-strong: rgba(255, 255, 255, 0.76);
+  --hero-card-background: rgba(255, 255, 255, 0.72);
+  --pill-background: var(--paper);
+  --upcoming-background: rgba(250, 250, 247, 0.8);
+  --soft-control-background: rgba(255, 255, 255, 0.55);
+  --profile-note-background: rgba(250, 250, 247, 0.94);
+  --profile-note-hero-background: rgba(255, 255, 255, 0.66);
+  --footer-background: var(--white);
+  --logo-background: var(--white);
+  --secondary-button-background: var(--ink);
+  --secondary-button-color: var(--white);
+  --secondary-button-border: transparent;
+  --lab-background:
+    linear-gradient(90deg, rgba(239, 226, 200, 0.58), rgba(255, 255, 255, 0.55)),
+    var(--paper-warm);
+  --card-hover-border: rgba(198, 40, 45, 0.35);
+  --accent-border-strong: rgba(198, 40, 45, 0.55);
+  --accent-border-soft: rgba(198, 40, 45, 0.38);
+  --accent-shadow: rgba(198, 40, 45, 0.2);
+  --work-link-background: #d9252a;
+  --work-link-hover: #bd1f24;
+  --work-link-shadow: rgba(217, 37, 42, 0.18);
+  --theme-transition: 0.25s ease;
 }
 
 * {
@@ -22,12 +52,55 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at top left, rgba(199, 184, 234, 0.16), transparent 30rem),
-    linear-gradient(180deg, var(--paper) 0%, #fffdf8 100%);
+  background: var(--body-background);
+  background-color: var(--paper);
   color: var(--ink);
   font-family: "Inter", "Montserrat", Arial, sans-serif;
   line-height: 1.6;
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition);
+}
+
+body.dark-mode {
+  --paper: #121212;
+  --paper-warm: #1b1b1b;
+  --red: #ff2b2b;
+  --red-dark: #df2020;
+  --ink: #f3f3f3;
+  --muted: #b8b8b8;
+  --line: rgba(255, 255, 255, 0.1);
+  --lilac: #b79dff;
+  --beige: #342f27;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  --body-background:
+    radial-gradient(circle at top left, rgba(183, 157, 255, 0.08), transparent 30rem),
+    linear-gradient(180deg, #121212 0%, #171717 100%);
+  --header-background: rgba(18, 18, 18, 0.9);
+  --header-border: rgba(255, 255, 255, 0.1);
+  --section-background: rgba(27, 27, 27, 0.78);
+  --card-background: #232323;
+  --card-background-strong: #232323;
+  --hero-card-background: #1b1b1b;
+  --pill-background: #1b1b1b;
+  --upcoming-background: #1b1b1b;
+  --soft-control-background: #232323;
+  --profile-note-background: #232323;
+  --profile-note-hero-background: #232323;
+  --footer-background: #1b1b1b;
+  --secondary-button-background: #232323;
+  --secondary-button-color: #f3f3f3;
+  --secondary-button-border: rgba(255, 255, 255, 0.1);
+  --lab-background:
+    linear-gradient(90deg, rgba(183, 157, 255, 0.055), rgba(255, 43, 43, 0.035)),
+    #1b1b1b;
+  --card-hover-border: rgba(255, 43, 43, 0.45);
+  --accent-border-strong: rgba(255, 43, 43, 0.55);
+  --accent-border-soft: rgba(255, 43, 43, 0.38);
+  --accent-shadow: rgba(255, 43, 43, 0.2);
+  --work-link-background: var(--red);
+  --work-link-hover: var(--red-dark);
+  --work-link-shadow: rgba(255, 43, 43, 0.2);
 }
 
 a {
@@ -44,9 +117,13 @@ a {
   justify-content: space-between;
   gap: 1.5rem;
   padding: 1rem clamp(1rem, 4vw, 3rem);
-  background: rgba(250, 250, 247, 0.88);
-  border-bottom: 1px solid rgba(229, 224, 215, 0.75);
+  background: var(--header-background);
+  border-bottom: 1px solid var(--header-border);
   backdrop-filter: blur(16px);
+  transition:
+    background-color var(--theme-transition),
+    border-color var(--theme-transition),
+    box-shadow var(--theme-transition);
 }
 
 .brand,
@@ -81,6 +158,67 @@ a {
 .main-nav a:hover,
 .site-footer a:hover {
   color: var(--red);
+}
+
+.theme-toggle {
+  display: inline-grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  flex: 0 0 auto;
+  place-items: center;
+  margin-left: 0.15rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--card-background);
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(17, 17, 17, 0.06);
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition),
+    box-shadow var(--theme-transition),
+    transform var(--theme-transition);
+}
+
+.theme-toggle:hover {
+  border-color: var(--card-hover-border);
+  color: var(--red);
+  transform: translateY(-1px);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid rgba(183, 157, 255, 0.4);
+  outline-offset: 3px;
+}
+
+.theme-icon {
+  grid-area: 1 / 1;
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  transition:
+    opacity var(--theme-transition),
+    transform var(--theme-transition);
+}
+
+.theme-icon-sun {
+  opacity: 0;
+  transform: rotate(-35deg) scale(0.7);
+}
+
+body.dark-mode .theme-icon-moon {
+  opacity: 0;
+  transform: rotate(35deg) scale(0.7);
+}
+
+body.dark-mode .theme-icon-sun {
+  opacity: 1;
+  transform: rotate(0) scale(1);
 }
 
 .section-shell {
@@ -181,11 +319,11 @@ h2 {
   padding: 0.75rem 1.15rem;
   font-weight: 800;
   transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease,
-    background 180ms ease,
-    color 180ms ease;
+    transform var(--theme-transition),
+    box-shadow var(--theme-transition),
+    border-color var(--theme-transition),
+    background-color var(--theme-transition),
+    color var(--theme-transition);
 }
 
 .btn:hover {
@@ -206,7 +344,7 @@ h2 {
 .btn.primary {
   background: var(--red);
   color: var(--white);
-  box-shadow: 0 14px 30px rgba(198, 40, 45, 0.2);
+  box-shadow: 0 14px 30px var(--accent-shadow);
 }
 
 .btn.primary:hover {
@@ -214,13 +352,14 @@ h2 {
 }
 
 .btn.secondary {
-  background: var(--ink);
-  color: var(--white);
+  border-color: var(--secondary-button-border);
+  background: var(--secondary-button-background);
+  color: var(--secondary-button-color);
 }
 
 .btn.ghost {
   border-color: var(--line);
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--soft-control-background);
   color: var(--ink);
 }
 
@@ -229,10 +368,14 @@ h2 {
   align-self: start;
   margin-top: 0.25rem;
   padding: 1rem;
-  border: 1px solid rgba(198, 40, 45, 0.55);
+  border: 1px solid var(--accent-border-strong);
   border-radius: 1.7rem;
-  background: rgba(255, 255, 255, 0.72);
+  background: var(--hero-card-background);
   box-shadow: var(--shadow);
+  transition:
+    background-color var(--theme-transition),
+    border-color var(--theme-transition),
+    box-shadow var(--theme-transition);
 }
 
 .profile-photo-frame {
@@ -289,15 +432,20 @@ h2 {
   padding: 1rem;
   border: 1px solid var(--line);
   border-radius: 1rem;
-  background: rgba(250, 250, 247, 0.94);
+  background: var(--profile-note-background);
   box-shadow: 0 12px 28px rgba(17, 17, 17, 0.07);
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition),
+    box-shadow var(--theme-transition);
 }
 
 .hero-profile-note {
   width: min(36rem, 100%);
   margin-top: 1.15rem;
-  border-color: rgba(198, 40, 45, 0.38);
-  background: rgba(255, 255, 255, 0.66);
+  border-color: var(--accent-border-soft);
+  background: var(--profile-note-hero-background);
   box-shadow: 0 10px 24px rgba(17, 17, 17, 0.055);
 }
 
@@ -368,7 +516,10 @@ h2 {
 .about-section {
   padding: clamp(4rem, 8vw, 7rem) 0;
   border-block: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.48);
+  background: var(--section-background);
+  transition:
+    background-color var(--theme-transition),
+    border-color var(--theme-transition);
 }
 
 .about-heading {
@@ -415,17 +566,19 @@ h2 {
   padding: 1.15rem;
   border: 1px solid var(--line);
   border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.76);
+  background: var(--card-background-strong);
   box-shadow: 0 14px 32px rgba(17, 17, 17, 0.05);
   transition:
     transform 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease;
+    box-shadow var(--theme-transition),
+    border-color var(--theme-transition),
+    background-color var(--theme-transition),
+    color var(--theme-transition);
 }
 
 .about-fact:hover {
   transform: translateY(-4px);
-  border-color: rgba(198, 40, 45, 0.35);
+  border-color: var(--card-hover-border);
   box-shadow: 0 20px 40px rgba(17, 17, 17, 0.08);
 }
 
@@ -484,20 +637,21 @@ h2 {
 .project-card,
 .mini-card {
   border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.72);
+  background: var(--card-background);
   box-shadow: 0 16px 38px rgba(17, 17, 17, 0.05);
   transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease,
-    background 180ms ease;
+    transform var(--theme-transition),
+    box-shadow var(--theme-transition),
+    border-color var(--theme-transition),
+    background-color var(--theme-transition),
+    color var(--theme-transition);
 }
 
 .skill-card:hover,
 .project-card:hover,
 .mini-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(198, 40, 45, 0.35);
+  border-color: var(--card-hover-border);
   box-shadow: 0 22px 46px rgba(17, 17, 17, 0.08);
 }
 
@@ -525,10 +679,14 @@ h2 {
 .tech {
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: var(--paper);
+  background: var(--pill-background);
   color: var(--muted);
   font-size: 0.88rem;
   font-weight: 700;
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition);
 }
 
 .tag-list li {
@@ -537,9 +695,10 @@ h2 {
 
 .lab-band {
   border-block: 1px solid var(--line);
-  background:
-    linear-gradient(90deg, rgba(239, 226, 200, 0.58), rgba(255, 255, 255, 0.55)),
-    var(--paper-warm);
+  background: var(--lab-background);
+  transition:
+    background-color var(--theme-transition),
+    border-color var(--theme-transition);
 }
 
 .lab-layout {
@@ -701,9 +860,13 @@ a.project-action:hover {
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 0.28rem 0.62rem;
-  background: rgba(250, 250, 247, 0.8);
+  background: var(--upcoming-background);
   color: var(--muted);
   font-size: 0.86rem;
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition);
 }
 
 .project-work-link {
@@ -712,7 +875,7 @@ a.project-action:hover {
   margin-top: 0.85rem;
   border-radius: 999px;
   padding: 0.68rem 1rem;
-  background: #d9252a;
+  background: var(--work-link-background);
   color: var(--white);
   font-weight: 900;
   transition:
@@ -722,9 +885,9 @@ a.project-action:hover {
 }
 
 .project-work-link:hover {
-  background: #bd1f24;
+  background: var(--work-link-hover);
   transform: translateY(-3px);
-  box-shadow: 0 12px 24px rgba(217, 37, 42, 0.18);
+  box-shadow: 0 12px 24px var(--work-link-shadow);
 }
 
 .project-card.muted {
@@ -785,17 +948,19 @@ a.project-action:hover {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.76);
+  background: var(--card-background-strong);
   box-shadow: 0 16px 38px rgba(17, 17, 17, 0.05);
   transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease;
+    transform var(--theme-transition),
+    box-shadow var(--theme-transition),
+    border-color var(--theme-transition),
+    background-color var(--theme-transition),
+    color var(--theme-transition);
 }
 
 .academic-portal-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(198, 40, 45, 0.35);
+  border-color: var(--card-hover-border);
   box-shadow: 0 22px 46px rgba(17, 17, 17, 0.08);
 }
 
@@ -805,7 +970,10 @@ a.project-action:hover {
   place-items: center;
   padding: 1.75rem;
   border-bottom: 1px solid var(--line);
-  background: var(--white);
+  background: var(--logo-background);
+  transition:
+    background-color var(--theme-transition),
+    border-color var(--theme-transition);
 }
 
 .academic-logo {
@@ -844,7 +1012,11 @@ a.project-action:hover {
   gap: 1.5rem;
   padding: 2rem clamp(1rem, 4vw, 3rem);
   border-top: 1px solid var(--line);
-  background: var(--white);
+  background: var(--footer-background);
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition);
 }
 
 .site-footer p {
@@ -889,6 +1061,7 @@ a.project-action:hover {
     width: 100%;
     overflow-x: auto;
     padding-bottom: 0.2rem;
+    scrollbar-width: thin;
   }
 
   .hero,
@@ -920,6 +1093,22 @@ a.project-action:hover {
 @media (max-width: 640px) {
   .brand-logo {
     height: 44px;
+  }
+
+  .main-nav {
+    gap: 0.85rem;
+  }
+
+  .main-nav a {
+    white-space: nowrap;
+  }
+
+  .theme-toggle {
+    position: absolute;
+    top: 1.25rem;
+    right: 1rem;
+    width: 2.25rem;
+    height: 2.25rem;
   }
 
   .section-shell {

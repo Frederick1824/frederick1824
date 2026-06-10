@@ -1,4 +1,33 @@
 const revealItems = document.querySelectorAll(".reveal");
+const themeToggle = document.querySelector(".theme-toggle");
+const themeStorageKey = "theme";
+
+const updateThemeToggle = () => {
+  if (!(themeToggle instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  const isDarkMode = document.body.classList.contains("dark-mode");
+  const label = isDarkMode ? "Activar modo claro" : "Activar modo oscuro";
+
+  themeToggle.setAttribute("aria-label", label);
+  themeToggle.setAttribute("aria-pressed", String(isDarkMode));
+  themeToggle.title = label;
+};
+
+updateThemeToggle();
+
+themeToggle?.addEventListener("click", () => {
+  const isDarkMode = document.body.classList.toggle("dark-mode");
+
+  try {
+    localStorage.setItem(themeStorageKey, isDarkMode ? "dark" : "light");
+  } catch (error) {
+    // Theme switching still works for the current visit without storage.
+  }
+
+  updateThemeToggle();
+});
 
 const observer = new IntersectionObserver(
   (entries) => {
