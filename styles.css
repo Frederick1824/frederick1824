@@ -1125,13 +1125,13 @@ a.project-action:hover {
 
 .academic-portal-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
 .academic-portal-card {
   display: flex;
-  min-height: 27rem;
+  min-height: 38rem;
   flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -1183,6 +1183,10 @@ body.dark-mode .academic-logo-wrap {
   max-width: 75%;
 }
 
+.academic-logo-unc {
+  max-width: min(100%, 24rem);
+}
+
 body.dark-mode .academic-portal-card {
   background: linear-gradient(135deg, #141414, #1c1c1c);
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.08);
@@ -1196,6 +1200,10 @@ body.dark-mode .academic-portal-card-ispc {
   border-color: rgba(183, 157, 255, 0.55);
 }
 
+body.dark-mode .academic-portal-card-unc {
+  border-color: rgba(90, 142, 255, 0.55);
+}
+
 body.dark-mode .academic-portal-card-upc .academic-logo-wrap {
   border-bottom-color: rgba(255, 43, 43, 0.28);
 }
@@ -1204,12 +1212,20 @@ body.dark-mode .academic-portal-card-ispc .academic-logo-wrap {
   border-bottom-color: rgba(183, 157, 255, 0.28);
 }
 
+body.dark-mode .academic-portal-card-unc .academic-logo-wrap {
+  border-bottom-color: rgba(90, 142, 255, 0.28);
+}
+
 body.dark-mode .academic-portal-card-upc:hover {
   border-color: var(--red);
 }
 
 body.dark-mode .academic-portal-card-ispc:hover {
   border-color: var(--lilac);
+}
+
+body.dark-mode .academic-portal-card-unc:hover {
+  border-color: #5a8eff;
 }
 
 .academic-portal-content {
@@ -1228,6 +1244,24 @@ body.dark-mode .academic-portal-card-ispc:hover {
 .academic-portal-content p {
   margin: 0.8rem 0 1.25rem;
   color: var(--muted);
+}
+
+.academic-portal-content .academic-campus {
+  margin-bottom: 0;
+  color: var(--lilac);
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.academic-portal-content .academic-program {
+  font-weight: 700;
+}
+
+.academic-portal-content .academic-description {
+  margin-top: 0;
+  font-size: 0.92rem;
 }
 
 .academic-portal-link {
@@ -1277,6 +1311,18 @@ body.dark-mode .academic-portal-card-ispc:hover {
   *::after {
     transition-duration: 1ms !important;
     animation-duration: 1ms !important;
+  }
+}
+
+@media (max-width: 1050px) {
+  .academic-portal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .academic-portal-card-unc {
+    width: calc(50% - 0.5rem);
+    grid-column: 1 / -1;
+    justify-self: center;
   }
 }
 
@@ -1391,6 +1437,29 @@ body.dark-mode .academic-portal-card-ispc:hover {
   .academic-portal-grid,
   .about-facts {
     grid-template-columns: 1fr;
+  }
+
+  .academic-portal-card-unc {
+    width: 100%;
+    grid-column: auto;
+  }
+
+  .academic-portal-card {
+    min-height: 41rem;
+  }
+
+  .academic-logo-wrap {
+    min-height: 10rem;
+    padding: 1.25rem;
+  }
+
+  .academic-portal-content {
+    padding: 1rem;
+  }
+
+  .academic-portal-content .academic-description {
+    font-size: 0.86rem;
+    line-height: 1.5;
   }
 
   .skill-card {
