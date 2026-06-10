@@ -108,6 +108,19 @@ a {
   text-decoration: none;
 }
 
+.theme-image {
+  opacity: 1;
+  transition:
+    opacity 0.18s ease,
+    filter var(--theme-transition),
+    transform var(--theme-transition);
+}
+
+.theme-images-loading .theme-image,
+.theme-image.is-switching {
+  opacity: 0;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -141,10 +154,11 @@ a {
 
 .brand-logo {
   display: block;
-  width: auto;
+  width: 52px;
   height: 48px;
   flex: 0 0 auto;
-  object-fit: contain;
+  border-radius: 0.55rem;
+  object-fit: cover;
 }
 
 .main-nav a,
@@ -260,13 +274,16 @@ h1 {
 }
 
 .hero-branding {
+  width: min(100%, 560px);
+  aspect-ratio: 766 / 318;
   margin: 0 0 0.7rem;
 }
 
 .hero-branding img {
   display: block;
-  width: min(100%, 560px);
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   border-radius: 0.75rem;
   box-shadow: 0 16px 36px rgba(17, 17, 17, 0.12);
 }
@@ -400,7 +417,7 @@ h2 {
 }
 
 .profile-photo-frame.photo-missing::before {
-  content: "Guardar foto en assets/federico-profile.jpg";
+  content: "Guardar foto en assets/profile/federico-profile-main-light.jpg";
   max-width: 14rem;
   color: rgba(17, 17, 17, 0.62);
   font-family: "Syne", sans-serif;
@@ -418,6 +435,7 @@ h2 {
   filter: contrast(1.04) saturate(1.02) brightness(1.01);
   transform: scale(1.02);
   transition:
+    opacity 0.18s ease,
     filter 220ms ease,
     transform 260ms ease;
 }
@@ -1133,6 +1151,7 @@ body.dark-mode .academic-portal-card-ispc:hover {
 
 @media (max-width: 640px) {
   .brand-logo {
+    width: 48px;
     height: 44px;
   }
 
@@ -1162,7 +1181,6 @@ body.dark-mode .academic-portal-card-ispc:hover {
 
   .hero-branding img {
     width: 100%;
-    max-width: 360px;
   }
 
   h2 {

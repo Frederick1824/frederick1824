@@ -19,6 +19,8 @@
   </head>
   <body>
     <script>
+      document.body.classList.add("theme-images-loading");
+
       try {
         if (localStorage.getItem("theme") === "dark") {
           document.body.classList.add("dark-mode");
@@ -30,8 +32,10 @@
     <header class="site-header">
       <a class="brand" href="#inicio" aria-label="Ir al inicio">
         <img
-          class="brand-logo"
-          src="assets/branding/fm-navbar.png"
+          class="brand-logo theme-image"
+          src="assets/branding/fm-navbar-light.png"
+          data-light-src="assets/branding/fm-navbar-light.png"
+          data-dark-src="assets/branding/fm-navbar-dark.png"
           alt=""
           width="168"
           height="160"
@@ -66,7 +70,10 @@
         <div class="hero-copy reveal">
           <figure class="hero-branding">
             <img
-              src="assets/branding/fm-logo-main.png"
+              class="theme-image"
+              src="assets/branding/fm-logo-main-light.png"
+              data-light-src="assets/branding/fm-logo-main-light.png"
+              data-dark-src="assets/branding/fm-logo-main-dark.png"
               alt="Federico Montoro Software Developer"
               width="766"
               height="318"
@@ -110,9 +117,11 @@
           <div class="accent-dot dot-beige"></div>
           <figure class="profile-photo-frame">
             <img
-              src="assets/federico-profile.jpg"
+              src="assets/profile/federico-profile-main-light.jpg"
+              data-light-src="assets/profile/federico-profile-main-light.jpg"
+              data-dark-src="assets/profile/federico-profile-main-dark.png"
               alt="Federico Montoro sonriendo"
-              class="profile-photo"
+              class="profile-photo theme-image"
               onerror="this.closest('.profile-photo-frame').classList.add('photo-missing'); this.remove();"
             />
           </figure>
@@ -326,9 +335,11 @@
               <article class="academic-portal-card academic-portal-card-upc">
                 <div class="academic-logo-wrap">
                   <img
-                    src="assets/images/logo-upc.png"
+                    src="assets/academic/upc-light.png"
+                    data-light-src="assets/academic/upc-light.png"
+                    data-dark-src="assets/academic/upc-dark.png"
                     alt="Logo de la Universidad Provincial de Córdoba"
-                    class="academic-logo academic-logo-upc"
+                    class="academic-logo academic-logo-upc theme-image"
                   />
                 </div>
                 <div class="academic-portal-content">
@@ -343,9 +354,11 @@
               <article class="academic-portal-card academic-portal-card-ispc">
                 <div class="academic-logo-wrap">
                   <img
-                    src="assets/images/logo-ispc.png"
+                    src="assets/academic/ispc-light.png"
+                    data-light-src="assets/academic/ispc-light.png"
+                    data-dark-src="assets/academic/ispc-dark.png"
                     alt="Logo del Instituto Superior Politécnico Córdoba"
-                    class="academic-logo academic-logo-ispc"
+                    class="academic-logo academic-logo-ispc theme-image"
                   />
                 </div>
                 <div class="academic-portal-content">

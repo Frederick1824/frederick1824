@@ -1,6 +1,56 @@
 const revealItems = document.querySelectorAll(".reveal");
 const themeToggle = document.querySelector(".theme-toggle");
+const themeImages = document.querySelectorAll("[data-light-src][data-dark-src]");
 const themeStorageKey = "theme";
+
+const preloadThemeImages = () => {
+  themeImages.forEach((image) => {
+    const lightImage = new Image();
+    const darkImage = new Image();
+
+    lightImage.src = image.dataset.lightSrc;
+    darkImage.src = image.dataset.darkSrc;
+  });
+};
+
+const updateThemeImages = (isDarkMode, animate = false) => {
+  const imageUpdates = Array.from(themeImages, (image) => {
+    const nextSource = isDarkMode ? image.dataset.darkSrc : image.dataset.lightSrc;
+
+    return new Promise((resolve) => {
+      const finishSwap = () => {
+        image.removeEventListener("load", finishSwap);
+        image.removeEventListener("error", finishSwap);
+        image.classList.remove("is-switching");
+        resolve();
+      };
+
+      if (!nextSource) {
+        finishSwap();
+        return;
+      }
+
+      if (image.getAttribute("src") === nextSource && image.complete) {
+        finishSwap();
+        return;
+      }
+
+      if (animate) {
+        image.classList.add("is-switching");
+      }
+
+      image.addEventListener("load", finishSwap, { once: true });
+      image.addEventListener("error", finishSwap, { once: true });
+      image.src = nextSource;
+
+      if (image.complete) {
+        requestAnimationFrame(finishSwap);
+      }
+    });
+  });
+
+  return Promise.all(imageUpdates);
+};
 
 const updateThemeToggle = () => {
   if (!(themeToggle instanceof HTMLButtonElement)) {
@@ -15,7 +65,13 @@ const updateThemeToggle = () => {
   themeToggle.title = label;
 };
 
+const initialDarkMode = document.body.classList.contains("dark-mode");
+
+updateThemeImages(initialDarkMode).finally(() => {
+  document.body.classList.remove("theme-images-loading");
+});
 updateThemeToggle();
+preloadThemeImages();
 
 themeToggle?.addEventListener("click", () => {
   const isDarkMode = document.body.classList.toggle("dark-mode");
@@ -26,6 +82,7 @@ themeToggle?.addEventListener("click", () => {
     // Theme switching still works for the current visit without storage.
   }
 
+  updateThemeImages(isDarkMode, true);
   updateThemeToggle();
 });
 
