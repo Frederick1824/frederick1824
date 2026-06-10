@@ -977,7 +977,7 @@ a.project-action:hover {
 }
 
 body.dark-mode .academic-logo-wrap {
-  background: linear-gradient(135deg, #121212, #1b1b1b);
+  background: linear-gradient(135deg, #141414, #1c1c1c);
 }
 
 .academic-logo {
@@ -985,6 +985,43 @@ body.dark-mode .academic-logo-wrap {
   max-width: 75%;
   max-height: 140px;
   object-fit: contain;
+}
+
+.academic-logo-upc {
+  max-width: min(100%, 24rem);
+}
+
+.academic-logo-ispc {
+  max-width: 75%;
+}
+
+body.dark-mode .academic-portal-card {
+  background: linear-gradient(135deg, #141414, #1c1c1c);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.08);
+}
+
+body.dark-mode .academic-portal-card-upc {
+  border-color: rgba(255, 43, 43, 0.55);
+}
+
+body.dark-mode .academic-portal-card-ispc {
+  border-color: rgba(183, 157, 255, 0.55);
+}
+
+body.dark-mode .academic-portal-card-upc .academic-logo-wrap {
+  border-bottom-color: rgba(255, 43, 43, 0.28);
+}
+
+body.dark-mode .academic-portal-card-ispc .academic-logo-wrap {
+  border-bottom-color: rgba(183, 157, 255, 0.28);
+}
+
+body.dark-mode .academic-portal-card-upc:hover {
+  border-color: var(--red);
+}
+
+body.dark-mode .academic-portal-card-ispc:hover {
+  border-color: var(--lilac);
 }
 
 .academic-portal-content {
