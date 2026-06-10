@@ -1126,12 +1126,13 @@ a.project-action:hover {
 .academic-portal-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   gap: 1rem;
 }
 
 .academic-portal-card {
   display: flex;
-  min-height: 38rem;
+  height: 100%;
   flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -1246,13 +1247,17 @@ body.dark-mode .academic-portal-card-unc:hover {
   color: var(--muted);
 }
 
-.academic-portal-content .academic-campus {
+.academic-portal-content .academic-type-label {
   margin-bottom: 0;
-  color: var(--lilac);
+  color: var(--red);
   font-size: 0.88rem;
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+body.dark-mode .academic-portal-content .academic-type-label {
+  color: var(--lilac);
 }
 
 .academic-portal-content .academic-program {
@@ -1266,6 +1271,9 @@ body.dark-mode .academic-portal-card-unc:hover {
 
 .academic-portal-link {
   margin-top: auto;
+  padding-inline: 0.85rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .site-footer {
@@ -1442,10 +1450,6 @@ body.dark-mode .academic-portal-card-unc:hover {
   .academic-portal-card-unc {
     width: 100%;
     grid-column: auto;
-  }
-
-  .academic-portal-card {
-    min-height: 41rem;
   }
 
   .academic-logo-wrap {
