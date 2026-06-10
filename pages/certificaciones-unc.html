@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Certificaciones oficiales de Federico Montoro realizadas a través del Campus Virtual UNC."
+    />
+    <title>Certificaciones UNC | Federico Montoro</title>
+    <link rel="icon" type="image/x-icon" href="../assets/branding/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="secondary-page">
+    <script>
+      document.body.classList.add("theme-images-loading");
+
+      try {
+        if (localStorage.getItem("theme") === "dark") {
+          document.body.classList.add("dark-mode");
+        }
+      } catch (error) {
+        // The page remains usable when browser storage is unavailable.
+      }
+    </script>
+
+    <header class="site-header secondary-header">
+      <a class="brand" href="../index.html#inicio" aria-label="Volver al inicio">
+        <img
+          class="brand-logo theme-image"
+          src="../assets/branding/fm-navbar-light.png"
+          data-light-src="../assets/branding/fm-navbar-light.png"
+          data-dark-src="../assets/branding/fm-navbar-dark.png"
+          alt=""
+          width="168"
+          height="160"
+        />
+        <span>fedemontoro.com.ar</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación secundaria">
+        <a href="../index.html#inicio">Inicio</a>
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Activar modo oscuro"
+          aria-pressed="false"
+          title="Activar modo oscuro"
+        >
+          <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" />
+          </svg>
+          <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" />
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <main class="secondary-main">
+      <div class="section-shell">
+        <div class="secondary-page-heading reveal">
+          <p class="eyebrow">Formación y desarrollo profesional</p>
+          <h1>Certificaciones UNC</h1>
+          <p>
+            Certificaciones oficiales y formación continua realizadas a través del Campus Virtual
+            de la Universidad Nacional de Córdoba.
+          </p>
+        </div>
+
+        <div class="certificate-grid">
+          <article class="certificate-card reveal">
+            <p class="certificate-provider">Campus Virtual UNC</p>
+            <h2>Metodologías ágiles para procesos de innovación abierta</h2>
+            <ul class="certificate-meta" aria-label="Información del certificado">
+              <li>30 horas</li>
+              <li>Emitido: 10 de junio de 2026</li>
+            </ul>
+            <a
+              class="btn primary certificate-action"
+              href="../documents/certificates/unc-metodologias-agiles-innovacion-abierta.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver certificado
+            </a>
+          </article>
+        </div>
+
+        <a class="btn ghost secondary-back" href="../index.html#inicio">
+          <span aria-hidden="true">←</span>
+          Volver al inicio
+        </a>
+      </div>
+    </main>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

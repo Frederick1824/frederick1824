@@ -1296,6 +1296,156 @@ body.dark-mode .academic-portal-content .academic-type-label {
   font-weight: 700;
 }
 
+.secondary-page {
+  min-height: 100vh;
+}
+
+.secondary-header .main-nav {
+  margin-left: auto;
+}
+
+.secondary-main {
+  min-height: calc(100vh - 9rem);
+  padding: clamp(4rem, 9vw, 7rem) 0;
+}
+
+.secondary-page-heading {
+  max-width: 52rem;
+  margin-bottom: 2rem;
+}
+
+.secondary-page-heading h1 {
+  max-width: none;
+  font-size: clamp(2.7rem, 7vw, 5.6rem);
+}
+
+.secondary-page-heading h1::after {
+  display: block;
+  width: 3.2rem;
+  height: 2px;
+  margin-top: 0.85rem;
+  background: var(--red);
+  content: "";
+}
+
+.secondary-page-heading > p:last-child {
+  max-width: 42rem;
+  margin: 1.15rem 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.certificate-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 46rem);
+}
+
+.certificate-card {
+  position: relative;
+  display: flex;
+  min-height: 25rem;
+  flex-direction: column;
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: var(--card-background-strong);
+  box-shadow: var(--shadow);
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition),
+    box-shadow var(--theme-transition),
+    transform var(--theme-transition);
+}
+
+.certificate-card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red), var(--lilac));
+  content: "";
+}
+
+.certificate-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--card-hover-border);
+}
+
+.certificate-provider {
+  margin: 0 0 1rem;
+  color: var(--lilac);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.certificate-card h2 {
+  max-width: 17ch;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.certificate-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.certificate-meta li {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.42rem 0.72rem;
+  background: var(--pill-background);
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition);
+}
+
+.certificate-action {
+  width: fit-content;
+  margin-top: auto;
+}
+
+.secondary-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-weight: 800;
+  transition:
+    color var(--theme-transition),
+    transform var(--theme-transition);
+}
+
+.secondary-back:hover {
+  color: var(--red);
+  transform: translateX(-3px);
+}
+
+body.dark-mode .certificate-card {
+  border-color: rgba(183, 157, 255, 0.28);
+  background: linear-gradient(135deg, #141414, #1c1c1c);
+  color: #f3f3f3;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.08);
+}
+
+body.dark-mode .certificate-meta li {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: #232323;
+  color: #b8b8b8;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -1412,6 +1562,14 @@ body.dark-mode .academic-portal-content .academic-type-label {
     font-size: 2.25rem;
   }
 
+  .secondary-page-heading h1 {
+    font-size: clamp(2rem, 10.5vw, 2.7rem);
+  }
+
+  .certificate-card h2 {
+    font-size: clamp(1.8rem, 8vw, 2.2rem);
+  }
+
   .work-experience-card {
     padding: 1.25rem;
   }
@@ -1430,6 +1588,10 @@ body.dark-mode .academic-portal-content .academic-type-label {
   }
 
   .btn {
+    width: 100%;
+  }
+
+  .certificate-action {
     width: 100%;
   }
 
