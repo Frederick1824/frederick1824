@@ -1060,12 +1060,17 @@ body.dark-mode .work-experience-strengths li {
 .lab-service-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
   gap: 1rem;
+  align-items: stretch;
 }
 
 .lab-service-card {
   position: relative;
-  min-height: 17rem;
+  display: flex;
+  height: 100%;
+  align-items: flex-start;
+  flex-direction: column;
   overflow: hidden;
   padding: 1.35rem;
   border-radius: 1rem;
@@ -1114,26 +1119,21 @@ body.dark-mode .lab-service-card::after {
   stroke-width: 1.6;
 }
 
-.lab-service-card > span {
-  color: var(--red);
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-}
-
-.lab-service-card:nth-child(even) > span {
-  color: var(--lilac);
-}
-
 .lab-service-card h3 {
-  margin-top: 0.55rem;
-  font-size: 1.35rem;
+  width: 100%;
+  margin-top: 0;
+  font-size: clamp(1.12rem, 1.65vw, 1.35rem);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+  white-space: normal;
 }
 
 .lab-service-card p {
   margin: 0.85rem 0 0;
   color: var(--muted);
   font-size: 0.94rem;
+  line-height: 1.55;
 }
 
 .mini-card-grid {
@@ -1905,4 +1905,5 @@ body.dark-mode .certificate-meta li {
   .skill-card {
     min-height: auto;
   }
+
 }
