@@ -1096,6 +1096,132 @@ body.dark-mode .lab-service-card::after {
   overflow-wrap: anywhere;
 }
 
+.contact-section {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  scroll-margin-top: 6rem;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.85fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.contact-copy h2 {
+  position: relative;
+  max-width: none;
+}
+
+.contact-copy h2::after {
+  display: block;
+  width: 3.2rem;
+  height: 2px;
+  margin-top: 0.75rem;
+  background: var(--red);
+  content: "";
+}
+
+.contact-subtitle {
+  margin: 1.4rem 0 0;
+  font-family: "Syne", "Montserrat", sans-serif;
+  font-size: clamp(1.25rem, 2.3vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.contact-description {
+  max-width: 42rem;
+  margin: 1rem 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.contact-card,
+.contact-form-card {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.4rem, 4vw, 2.2rem);
+  border: 1px solid var(--card-tech-border);
+  border-radius: 1.25rem;
+  background: var(--card-background-strong);
+  box-shadow: var(--card-depth-shadow);
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contact-card::before,
+.contact-form-card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red), var(--lilac));
+  content: "";
+}
+
+.contact-card:hover,
+.contact-form-card:hover {
+  border-color: var(--card-tech-hover-border);
+  box-shadow: var(--card-depth-hover-shadow);
+  transform: translateY(-4px);
+}
+
+.contact-details {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.contact-details div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.contact-details span {
+  color: var(--red);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-details a {
+  width: fit-content;
+  max-width: 100%;
+  color: var(--ink);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  transition: color 180ms ease;
+}
+
+.contact-details a:hover {
+  color: var(--red);
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.contact-message-button {
+  border-color: var(--red);
+  background: transparent;
+  color: var(--red);
+}
+
+.contact-message-button:hover {
+  background: var(--red);
+  color: var(--white);
+}
+
 .academic-education {
   margin-top: 2rem;
   padding-bottom: 1.5rem;
@@ -1342,6 +1468,109 @@ body.dark-mode .academic-portal-content .academic-type-label {
   font-size: 1.05rem;
 }
 
+.contact-page-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(28rem, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.contact-page-layout .secondary-page-heading {
+  position: sticky;
+  top: 8rem;
+  margin-bottom: 0;
+}
+
+.contact-page-layout .secondary-page-heading > p:not(.eyebrow) {
+  max-width: 42rem;
+  margin: 1.15rem 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.contact-form-card h2 {
+  max-width: none;
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem;
+  margin-top: 1.5rem;
+}
+
+.form-field {
+  display: grid;
+  min-width: 0;
+  gap: 0.45rem;
+}
+
+.form-field span {
+  font-weight: 800;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  padding: 0.85rem 0.95rem;
+  background: var(--soft-control-background);
+  color: var(--ink);
+  font: inherit;
+  line-height: 1.4;
+  outline: none;
+  transition:
+    background-color var(--theme-transition),
+    color var(--theme-transition),
+    border-color var(--theme-transition),
+    box-shadow var(--theme-transition);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.82;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px var(--accent-shadow);
+}
+
+.form-field textarea {
+  min-height: 10rem;
+  resize: vertical;
+}
+
+.form-field-message {
+  grid-column: 1 / -1;
+}
+
+.contact-submit {
+  width: fit-content;
+}
+
+.form-status {
+  align-self: center;
+  min-height: 1.5rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.form-status.is-error {
+  color: var(--red);
+}
+
+.form-status.is-success {
+  color: var(--ink);
+}
+
 .certificate-grid {
   display: grid;
   grid-template-columns: minmax(0, 46rem);
@@ -1540,7 +1769,9 @@ body.dark-mode .certificate-meta li {
   }
 
   .hero,
-  .work-experience-card {
+  .work-experience-card,
+  .contact-layout,
+  .contact-page-layout {
     grid-template-columns: 1fr;
   }
 
@@ -1559,6 +1790,10 @@ body.dark-mode .certificate-meta li {
   .section-heading {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .contact-page-layout .secondary-page-heading {
+    position: static;
   }
 }
 
@@ -1623,6 +1858,7 @@ body.dark-mode .certificate-meta li {
 
   .hero-actions,
   .work-experience-actions,
+  .contact-actions,
   .site-footer,
   .site-footer nav {
     align-items: stretch;
@@ -1646,6 +1882,18 @@ body.dark-mode .certificate-meta li {
   .academic-portal-grid,
   .about-facts {
     grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+
+  .form-field-message {
+    grid-column: auto;
+  }
+
+  .contact-submit {
+    width: 100%;
   }
 
   .academic-portal-card-unc {
