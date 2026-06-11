@@ -978,14 +978,37 @@ body.dark-mode .work-experience-strengths li {
 }
 
 .lab-heading {
-  max-width: 54rem;
+  max-width: 58rem;
   margin-bottom: 2.25rem;
 }
 
-.lab-copy p:not(.eyebrow) {
-  max-width: 52rem;
+.lab-copy h2 {
+  max-width: none;
+}
+
+.lab-copy .lab-subtitle {
+  max-width: 34rem;
+  margin: 1.2rem 0 0;
+  color: var(--text);
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.lab-description {
+  max-width: 50rem;
+  margin-top: 1.5rem;
+}
+
+.lab-description p {
+  margin: 0;
   color: var(--muted);
   font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.lab-description p + p {
+  margin-top: 0.8rem;
 }
 
 .lab-service-grid {
@@ -999,6 +1022,7 @@ body.dark-mode .work-experience-strengths li {
 .lab-service-card {
   position: relative;
   display: flex;
+  min-width: 0;
   height: 100%;
   align-items: flex-start;
   flex-direction: column;
@@ -1051,6 +1075,7 @@ body.dark-mode .lab-service-card::after {
 }
 
 .lab-service-card h3 {
+  min-width: 0;
   width: 100%;
   margin-top: 0;
   font-size: clamp(1.05rem, 1.35vw, 1.22rem);
@@ -1063,10 +1088,12 @@ body.dark-mode .lab-service-card::after {
 }
 
 .lab-service-card p {
+  max-width: 100%;
   margin: 0.85rem 0 0;
   color: var(--muted);
   font-size: 0.94rem;
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .academic-education {
