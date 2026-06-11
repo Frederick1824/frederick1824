@@ -2,6 +2,44 @@ const revealItems = document.querySelectorAll(".reveal");
 const themeToggle = document.querySelector(".theme-toggle");
 const themeImages = document.querySelectorAll("[data-light-src][data-dark-src]");
 const themeStorageKey = "theme";
+const cursorGlowQuery = window.matchMedia(
+  "(min-width: 768px) and (pointer: fine) and (prefers-reduced-motion: no-preference)",
+);
+
+if (cursorGlowQuery.matches) {
+  const cursorGlow = document.createElement("div");
+  let cursorFrame = 0;
+  let cursorX = window.innerWidth / 2;
+  let cursorY = window.innerHeight / 2;
+
+  cursorGlow.className = "cursor-glow";
+  cursorGlow.setAttribute("aria-hidden", "true");
+  document.body.prepend(cursorGlow);
+
+  const updateCursorGlow = () => {
+    cursorGlow.style.setProperty("--cursor-x", `${cursorX}px`);
+    cursorGlow.style.setProperty("--cursor-y", `${cursorY}px`);
+    cursorGlow.classList.add("is-active");
+    cursorFrame = 0;
+  };
+
+  window.addEventListener(
+    "pointermove",
+    (event) => {
+      cursorX = event.clientX;
+      cursorY = event.clientY;
+
+      if (!cursorFrame) {
+        cursorFrame = requestAnimationFrame(updateCursorGlow);
+      }
+    },
+    { passive: true },
+  );
+
+  document.documentElement.addEventListener("mouseleave", () => {
+    cursorGlow.classList.remove("is-active");
+  });
+}
 
 const preloadThemeImages = () => {
   themeImages.forEach((image) => {
