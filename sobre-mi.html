@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Conocé la historia, experiencia y forma de trabajar de Federico Montoro: tecnología, Customer Success, Customer Experience y relaciones humanas."
+    />
+    <title>Sobre mí | Federico Montoro</title>
+    <link rel="icon" type="image/x-icon" href="assets/branding/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="secondary-page about-page">
+    <script>
+      document.body.classList.add("theme-images-loading");
+
+      try {
+        if (localStorage.getItem("theme") === "dark") {
+          document.body.classList.add("dark-mode");
+        }
+      } catch (error) {
+        // The page remains usable when browser storage is unavailable.
+      }
+    </script>
+
+    <header class="site-header secondary-header">
+      <a class="brand" href="index.html#inicio" aria-label="Volver al inicio">
+        <img
+          class="brand-logo theme-image"
+          src="assets/branding/fm-navbar-light.png"
+          data-light-src="assets/branding/fm-navbar-light.png"
+          data-dark-src="assets/branding/fm-navbar-dark.png"
+          alt=""
+          width="168"
+          height="160"
+        />
+        <span>fedemontoro.com.ar</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación secundaria">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#perfil-profesional">Perfil</a>
+        <a href="index.html#experiencia-laboral">Experiencia</a>
+        <a href="sobre-mi.html" aria-current="page">Sobre mí</a>
+        <a href="index.html#contacto">Contacto</a>
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Activar modo oscuro"
+          aria-pressed="false"
+          title="Activar modo oscuro"
+        >
+          <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" />
+          </svg>
+          <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" />
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <main class="about-page-main">
+      <section class="about-page-hero section-shell">
+        <div class="about-page-hero-copy reveal">
+          <p class="eyebrow">Sobre mí</p>
+          <h1>Más allá del código</h1>
+          <p class="about-page-lead">Personas, tecnología y soluciones</p>
+          <p class="about-page-intro">
+            Una mirada profesional que combina experiencia comercial, Customer Success, Customer
+            Experience, tecnología y relaciones humanas para resolver problemas reales.
+          </p>
+          <div class="about-page-hero-tags" aria-label="Áreas que integran mi perfil">
+            <span>Personas</span>
+            <span>Procesos</span>
+            <span>Tecnología</span>
+          </div>
+        </div>
+
+        <aside class="about-page-portrait-card reveal" aria-label="Fotografía de Federico Montoro">
+          <div class="about-page-portrait-accent" aria-hidden="true"></div>
+          <figure class="about-page-portrait">
+            <!-- Archivo temporal dedicado: reemplazarlo por la futura fotografía profesional. -->
+            <img
+              src="assets/profile/federico-profile-about.jpg"
+              alt="Federico Montoro"
+              onerror="this.closest('.about-page-portrait').classList.add('photo-missing'); this.remove();"
+            />
+          </figure>
+          <div class="about-page-portrait-caption">
+            <span>Federico Montoro</span>
+            <strong>Software · Experiencia · Soluciones</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section class="about-page-story-band">
+        <div class="section-shell about-page-story">
+          <article class="about-page-narrative reveal">
+            <div class="about-page-section-marker" aria-hidden="true">
+              <span>01</span>
+              <svg viewBox="0 0 24 24">
+                <path d="M12 21s7-4.35 7-11a7 7 0 0 0-14 0c0 6.65 7 11 7 11Z" />
+                <circle cx="12" cy="10" r="2.5" />
+              </svg>
+            </div>
+            <div class="about-page-narrative-copy">
+              <p class="eyebrow">Origen</p>
+              <h2>Una historia que comenzó ayudando personas</h2>
+              <p>
+                Desde muy chico crecí en un entorno donde la atención a las personas era un valor
+                fundamental. En una ciudad turística como Villa Carlos Paz aprendí la importancia
+                de escuchar, orientar y brindar ayuda a quienes necesitaban información o
+                acompañamiento. Esa experiencia temprana desarrolló mi vocación de servicio y mi
+                interés genuino por comprender las necesidades de los demás.
+              </p>
+            </div>
+          </article>
+
+          <article class="about-page-narrative about-page-narrative-reverse reveal">
+            <div class="about-page-section-marker" aria-hidden="true">
+              <span>02</span>
+              <svg viewBox="0 0 24 24">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <div class="about-page-narrative-copy">
+              <p class="eyebrow">Trayectoria</p>
+              <h2>Experiencia, comunicación y confianza</h2>
+              <p>
+                Mi recorrido profesional me permitió desempeñarme en hotelería, atención al
+                cliente, ventas y servicios financieros. Estas experiencias fortalecieron
+                habilidades como la escucha activa, la comunicación efectiva, la empatía y la
+                capacidad de generar relaciones de confianza.
+              </p>
+              <p>
+                Aprendí a identificar necesidades rápidamente, analizar situaciones desde
+                diferentes perspectivas y ofrecer soluciones simples, claras y orientadas a
+                resultados.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-page-human-tech section-shell">
+        <div class="about-page-human-tech-copy reveal">
+          <p class="eyebrow">Presente</p>
+          <h2>Tecnología con mirada humana</h2>
+          <p>Hoy complemento esa experiencia con formación en programación y desarrollo de software.</p>
+          <p>
+            Mi enfoque no se limita a construir aplicaciones. Me interesa comprender el problema,
+            analizar procesos y desarrollar herramientas que realmente aporten valor a quienes las
+            utilizan.
+          </p>
+          <p>
+            Combino conocimientos técnicos con experiencia en Customer Success, Customer
+            Experience, procesos comerciales y análisis operativo para diseñar soluciones
+            digitales centradas en las personas.
+          </p>
+        </div>
+
+        <aside class="about-page-convergence reveal" aria-label="Integración de capacidades">
+          <p>Una visión integral</p>
+          <div class="about-page-convergence-item">
+            <span aria-hidden="true">01</span>
+            <div>
+              <strong>Experiencia humana</strong>
+              <small>Escucha, empatía y confianza</small>
+            </div>
+          </div>
+          <div class="about-page-convergence-item">
+            <span aria-hidden="true">02</span>
+            <div>
+              <strong>Criterio de negocio</strong>
+              <small>Procesos, clientes y resultados</small>
+            </div>
+          </div>
+          <div class="about-page-convergence-item">
+            <span aria-hidden="true">03</span>
+            <div>
+              <strong>Desarrollo de software</strong>
+              <small>Herramientas útiles y sostenibles</small>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="about-page-life-band">
+        <div class="section-shell about-page-life">
+          <div class="about-page-life-visual reveal" aria-hidden="true">
+            <div class="about-page-life-orbit">
+              <svg viewBox="0 0 24 24">
+                <path d="M9 18V5l12-2v13" />
+                <circle cx="6" cy="18" r="3" />
+                <circle cx="18" cy="16" r="3" />
+              </svg>
+            </div>
+            <span>Música</span>
+            <span>Deporte</span>
+            <span>Aprendizaje</span>
+            <span>Comunidad</span>
+          </div>
+
+          <div class="about-page-life-copy reveal">
+            <p class="eyebrow">Perspectiva personal</p>
+            <h2>Más allá del trabajo</h2>
+            <p>
+              La música forma parte de mi vida desde que tengo memoria y representa una de mis
+              principales fuentes de inspiración, creatividad y aprendizaje.
+            </p>
+            <p>
+              También disfruto del deporte, la vida al aire libre, el trabajo colaborativo y los
+              espacios donde puedo seguir aprendiendo, compartir experiencias y generar vínculos
+              genuinos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-page-method section-shell">
+        <div class="about-page-method-heading reveal">
+          <p class="eyebrow">Principios</p>
+          <h2>Mi forma de trabajar</h2>
+          <p>Cuatro pilares para transformar necesidades en soluciones concretas.</p>
+        </div>
+
+        <div class="about-page-pillars">
+          <article class="about-page-pillar reveal">
+            <div class="about-page-pillar-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 13a8 8 0 0 1 16 0" />
+                <path d="M18 19c0 1.1-.9 2-2 2h-3" />
+                <path d="M4 13v4a2 2 0 0 0 2 2h1v-8H6a2 2 0 0 0-2 2ZM20 13v4a2 2 0 0 1-2 2h-1v-8h1a2 2 0 0 1 2 2Z" />
+              </svg>
+            </div>
+            <span>01</span>
+            <h3>Escucha Activa</h3>
+            <p>Comprender antes de proponer soluciones.</p>
+          </article>
+
+          <article class="about-page-pillar reveal">
+            <div class="about-page-pillar-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M3 3v18h18" />
+                <path d="m7 16 4-5 3 3 5-7" />
+              </svg>
+            </div>
+            <span>02</span>
+            <h3>Pensamiento Analítico</h3>
+            <p>Identificar causas, procesos y oportunidades de mejora.</p>
+          </article>
+
+          <article class="about-page-pillar reveal">
+            <div class="about-page-pillar-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" />
+                <path d="M8 9h8M8 13h5" />
+              </svg>
+            </div>
+            <span>03</span>
+            <h3>Comunicación Clara</h3>
+            <p>Traducir necesidades complejas en acciones concretas.</p>
+          </article>
+
+          <article class="about-page-pillar reveal">
+            <div class="about-page-pillar-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M20 12a8 8 0 1 1-2.34-5.66L20 8.68" />
+                <path d="M20 3v5.68h-5.68" />
+              </svg>
+            </div>
+            <span>04</span>
+            <h3>Mejora Continua</h3>
+            <p>Aprender, iterar y evolucionar constantemente.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-page-closing section-shell reveal">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M7 17h4V7H5v6h2v4ZM17 17h4V7h-6v6h2v4Z" />
+        </svg>
+        <blockquote>Escuchar primero. Comprender después. Resolver de forma simple.</blockquote>
+        <a class="btn primary" href="index.html#contacto">Conversemos</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Federico Montoro • Transformando ideas en soluciones útiles</p>
+      <nav aria-label="Enlaces principales">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#experiencia-laboral">Experiencia</a>
+        <a href="documents/cv-federico-montoro.pdf" download>CV</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
