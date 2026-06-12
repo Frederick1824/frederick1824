@@ -32,6 +32,7 @@ if (contactForm instanceof HTMLFormElement && formStatus instanceof HTMLElement)
     }
 
     const formData = new FormData(contactForm);
+    const contactData = Object.fromEntries(formData.entries());
 
     if (submitButton instanceof HTMLButtonElement) {
       submitButton.disabled = true;
@@ -43,13 +44,13 @@ if (contactForm instanceof HTMLFormElement && formStatus instanceof HTMLElement)
     formStatus.className = "form-status";
 
     try {
-      await submitContactForm(formData);
+      await submitContactForm(contactData);
       contactForm.reset();
       formStatus.textContent = "Mensaje enviado correctamente. Te responderé a la brevedad.";
       formStatus.className = "form-status is-success";
     } catch (error) {
-      formStatus.textContent =
-        "No se pudo enviar el mensaje. Intentá nuevamente en unos minutos.";
+      console.error("Contact form submission failed:", error);
+      formStatus.textContent = getSubmissionErrorMessage(error);
       formStatus.className = "form-status is-error";
     } finally {
       contactForm.removeAttribute("aria-busy");
@@ -62,23 +63,45 @@ if (contactForm instanceof HTMLFormElement && formStatus instanceof HTMLElement)
   });
 }
 
-async function submitContactForm(formData) {
+async function submitContactForm(contactData) {
   const endpoint = "https://formsubmit.co/ajax/fede.montoro1824@gmail.com";
   const response = await fetch(endpoint, {
     method: "POST",
     headers: {
+      "Content-Type": "application/json",
       Accept: "application/json",
     },
-    body: formData,
+    body: JSON.stringify(contactData),
   });
 
-  const result = await response.json().catch(() => null);
+  const responseText = await response.text();
+  const result = parseJsonResponse(responseText);
   const isSuccessful =
     response.ok && (result?.success === true || result?.success === "true");
 
   if (!isSuccessful) {
-    throw new Error(result?.message || "FormSubmit rejected the submission.");
+    const error = new Error(result?.message || "FormSubmit rejected the submission.");
+    error.status = response.status;
+    throw error;
   }
 
   return result;
+}
+
+function parseJsonResponse(responseText) {
+  try {
+    return JSON.parse(responseText);
+  } catch (error) {
+    return null;
+  }
+}
+
+function getSubmissionErrorMessage(error) {
+  const providerMessage = error instanceof Error ? error.message : "";
+
+  if (/confirm|activate|activation|verify/i.test(providerMessage)) {
+    return "Falta activar el formulario. Revisá el correo de confirmación de FormSubmit.";
+  }
+
+  return "No se pudo enviar el mensaje. Intentá nuevamente en unos minutos.";
 }
