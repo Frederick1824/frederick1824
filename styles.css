@@ -1287,11 +1287,6 @@ body.dark-mode .lab-service-card::after {
   font-size: 1.05rem;
 }
 
-.academic-projects-link {
-  width: fit-content;
-  margin-top: 1.25rem;
-}
-
 .academic-education-heading h2::after {
   display: block;
   width: 3.2rem;
@@ -2080,7 +2075,6 @@ body.dark-mode .project-card:hover {
     width: 100%;
   }
 
-  .academic-projects-link,
   .project-link,
   .projects-back {
     width: 100%;
