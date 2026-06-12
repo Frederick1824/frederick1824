@@ -78,7 +78,27 @@
 
         <section class="contact-form-card reveal" aria-labelledby="contact-form-title">
           <h2 id="contact-form-title">Datos de contacto</h2>
-          <form class="contact-form" id="contact-form" novalidate>
+          <form
+            class="contact-form"
+            id="contact-form"
+            action="https://formsubmit.co/fede.montoro1824@gmail.com"
+            method="POST"
+            novalidate
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="Nueva consulta desde fedemontoro.com.ar"
+            />
+            <input type="hidden" name="_template" value="table" />
+            <input
+              class="form-honeypot"
+              type="text"
+              name="_honey"
+              tabindex="-1"
+              autocomplete="off"
+            />
+
             <label class="form-field">
               <span>Nombre</span>
               <input

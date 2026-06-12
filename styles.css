@@ -1613,6 +1613,22 @@ body.dark-mode .academic-portal-content .academic-type-label {
   width: fit-content;
 }
 
+.contact-submit:disabled {
+  cursor: wait;
+  opacity: 0.68;
+  transform: none;
+}
+
+.form-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .form-status {
   align-self: center;
   min-height: 1.5rem;

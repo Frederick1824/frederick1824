@@ -3,14 +3,22 @@ const formStatus = document.querySelector("#form-status");
 
 if (contactForm instanceof HTMLFormElement && formStatus instanceof HTMLElement) {
   const requiredFields = Array.from(contactForm.querySelectorAll("[required]"));
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const submitButtonLabel =
+    submitButton instanceof HTMLButtonElement ? submitButton.textContent : "Enviar consulta";
 
   requiredFields.forEach((field) => {
     field.addEventListener("input", () => {
       field.setCustomValidity("");
+
+      if (formStatus.classList.contains("is-error")) {
+        formStatus.textContent = "";
+        formStatus.className = "form-status";
+      }
     });
   });
 
-  contactForm.addEventListener("submit", (event) => {
+  contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     requiredFields.forEach((field) => {
@@ -24,24 +32,53 @@ if (contactForm instanceof HTMLFormElement && formStatus instanceof HTMLElement)
     }
 
     const formData = new FormData(contactForm);
-    const nombre = String(formData.get("nombre")).trim();
-    const telefono = String(formData.get("telefono")).trim();
-    const email = String(formData.get("email")).trim();
-    const mensaje = String(formData.get("mensaje")).trim();
-    const subject = encodeURIComponent("Nueva consulta desde fedemontoro.com.ar");
-    const body = encodeURIComponent(
-      `Nombre: ${nombre}
-Teléfono: ${telefono}
-Email: ${email}
 
-Mensaje:
-${mensaje}`,
-    );
-    const mailtoLink =
-      `mailto:fede.montoro1824@gmail.com?subject=${subject}&body=${body}`;
+    if (submitButton instanceof HTMLButtonElement) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Enviando...";
+    }
 
-    formStatus.textContent = "Consulta preparada. Se abrirá tu cliente de correo.";
-    formStatus.className = "form-status is-success";
-    window.location.href = mailtoLink;
+    contactForm.setAttribute("aria-busy", "true");
+    formStatus.textContent = "Enviando mensaje...";
+    formStatus.className = "form-status";
+
+    try {
+      await submitContactForm(formData);
+      contactForm.reset();
+      formStatus.textContent = "Mensaje enviado correctamente. Te responderé a la brevedad.";
+      formStatus.className = "form-status is-success";
+    } catch (error) {
+      formStatus.textContent =
+        "No se pudo enviar el mensaje. Intentá nuevamente en unos minutos.";
+      formStatus.className = "form-status is-error";
+    } finally {
+      contactForm.removeAttribute("aria-busy");
+
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = false;
+        submitButton.textContent = submitButtonLabel;
+      }
+    }
   });
+}
+
+async function submitContactForm(formData) {
+  const endpoint = "https://formsubmit.co/ajax/fede.montoro1824@gmail.com";
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+    },
+    body: formData,
+  });
+
+  const result = await response.json().catch(() => null);
+  const isSuccessful =
+    response.ok && (result?.success === true || result?.success === "true");
+
+  if (!isSuccessful) {
+    throw new Error(result?.message || "FormSubmit rejected the submission.");
+  }
+
+  return result;
 }
