@@ -1796,6 +1796,10 @@ body.dark-mode .certificate-meta li {
   margin-top: clamp(4rem, 8vw, 7rem);
 }
 
+.project-institution-section {
+  scroll-margin-top: 6rem;
+}
+
 .project-institution-heading {
   max-width: 55rem;
   margin-bottom: clamp(1.25rem, 2.5vw, 1.8rem);
