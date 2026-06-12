@@ -28,24 +28,20 @@ if (contactForm instanceof HTMLFormElement && formStatus instanceof HTMLElement)
     const telefono = String(formData.get("telefono")).trim();
     const email = String(formData.get("email")).trim();
     const mensaje = String(formData.get("mensaje")).trim();
-    const subject = "Nueva consulta desde fedemontoro.com.ar";
-    const body = [
-      `Nombre: ${nombre}`,
-      `Teléfono: ${telefono}`,
-      `Email: ${email}`,
-      "",
-      "Mensaje:",
-      mensaje,
-    ].join("\n");
+    const subject = encodeURIComponent("Nueva consulta desde fedemontoro.com.ar");
+    const body = encodeURIComponent(
+      `Nombre: ${nombre}
+Teléfono: ${telefono}
+Email: ${email}
+
+Mensaje:
+${mensaje}`,
+    );
     const mailtoLink =
-      `mailto:fede.montoro1824@gmail.com?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`;
+      `mailto:fede.montoro1824@gmail.com?subject=${subject}&body=${body}`;
 
     formStatus.textContent = "Consulta preparada. Se abrirá tu cliente de correo.";
     formStatus.className = "form-status is-success";
-
-    window.setTimeout(() => {
-      window.location.href = mailtoLink;
-    }, 100);
+    window.location.href = mailtoLink;
   });
 }
