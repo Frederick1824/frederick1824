@@ -3031,7 +3031,9 @@ body.dark-mode .project-card:hover {
   grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
   gap: clamp(2rem, 7vw, 6rem);
   align-items: end;
-  padding: clamp(4.5rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem);
+  min-height: auto;
+  margin-bottom: clamp(3rem, 5vw, 5rem);
+  padding: clamp(5rem, 9vw, 7.5rem) 0 clamp(2rem, 4vw, 3.75rem);
 }
 
 .personal-about-heading {
@@ -3053,8 +3055,8 @@ body.dark-mode .project-card:hover {
 
 .personal-about-heading h1 {
   max-width: 8.5ch;
-  font-size: clamp(4.4rem, 9vw, 8.2rem);
-  line-height: 0.88;
+  font-size: clamp(3.5rem, 7vw, 5.5rem);
+  line-height: 0.95;
 }
 
 .personal-about-heading h1::after {
@@ -3067,12 +3069,12 @@ body.dark-mode .project-card:hover {
 }
 
 .personal-about-deck {
-  max-width: 29rem;
+  max-width: 32.5rem;
   margin: 0 0 0.45rem;
   color: var(--muted);
-  font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+  font-size: clamp(1.2rem, 1.6vw, 1.6rem);
   font-weight: 600;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .personal-about-photo-section {
@@ -3423,6 +3425,9 @@ body.dark-mode .personal-about-paragraph-featured {
 
   .personal-about-hero {
     gap: 1.5rem;
+    margin-bottom: 3.5rem;
+    padding-top: 5rem;
+    padding-bottom: 2.5rem;
   }
 
   .personal-about-deck {
@@ -3441,7 +3446,8 @@ body.dark-mode .personal-about-paragraph-featured {
 
 @media (max-width: 640px) {
   .personal-about-hero {
-    padding: 3.25rem 0 2.5rem;
+    margin-bottom: 3rem;
+    padding: 3.25rem 0 2rem;
   }
 
   .personal-about-heading::before {
@@ -3450,7 +3456,13 @@ body.dark-mode .personal-about-paragraph-featured {
 
   .personal-about-heading h1 {
     max-width: 8ch;
-    font-size: clamp(3.35rem, 17vw, 4.7rem);
+    font-size: clamp(3rem, 14vw, 4rem);
+    line-height: 0.95;
+  }
+
+  .personal-about-deck {
+    font-size: clamp(1.08rem, 5vw, 1.25rem);
+    line-height: 1.65;
   }
 
   .personal-about-photo-section {
