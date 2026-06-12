@@ -1776,8 +1776,8 @@ body.dark-mode .certificate-meta li {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-  gap: clamp(1rem, 2.5vw, 1.5rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.9rem, 2vw, 1.25rem);
   align-items: stretch;
 }
 
@@ -1785,10 +1785,10 @@ body.dark-mode .certificate-meta li {
   position: relative;
   display: flex;
   min-width: 0;
-  min-height: 28rem;
+  height: 100%;
   flex-direction: column;
   overflow: hidden;
-  padding: clamp(1.35rem, 3vw, 2rem);
+  padding: clamp(1.35rem, 2.2vw, 1.75rem);
   border: 1px solid var(--card-tech-border);
   border-radius: 1.25rem;
   background: var(--card-background-strong);
@@ -1822,13 +1822,13 @@ body.dark-mode .certificate-meta li {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.1rem;
 }
 
 .project-number {
   color: var(--red);
   font-family: "Syne", "Montserrat", sans-serif;
-  font-size: 1.65rem;
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
   font-weight: 800;
   line-height: 1;
 }
@@ -1844,15 +1844,17 @@ body.dark-mode .certificate-meta li {
 }
 
 .project-card h2 {
-  max-width: 16ch;
-  font-size: clamp(1.55rem, 2.5vw, 2.15rem);
-  line-height: 1.12;
+  max-width: 18ch;
+  font-size: clamp(1.45rem, 2vw, 1.85rem);
+  line-height: 1.15;
 }
 
-.project-card > p {
-  margin: 1.15rem 0 1.75rem;
+.project-card-description {
+  flex: 1;
+  margin: 0.9rem 0 1.4rem;
   color: var(--muted);
-  line-height: 1.7;
+  font-size: clamp(0.94rem, 1.05vw, 1.05rem);
+  line-height: 1.55;
 }
 
 .project-link {
@@ -1993,6 +1995,10 @@ body.dark-mode .project-card:hover {
     max-width: none;
     justify-self: stretch;
   }
+
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 640px) {
@@ -2081,7 +2087,11 @@ body.dark-mode .project-card:hover {
   }
 
   .project-card {
-    min-height: auto;
+    height: auto;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 
   .profile-note {
