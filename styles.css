@@ -1287,6 +1287,11 @@ body.dark-mode .lab-service-card::after {
   font-size: 1.05rem;
 }
 
+.academic-projects-link {
+  width: fit-content;
+  margin-top: 1.25rem;
+}
+
 .academic-education-heading h2::after {
   display: block;
   width: 3.2rem;
@@ -1759,6 +1764,116 @@ body.dark-mode .certificate-meta li {
   color: #b8b8b8;
 }
 
+.projects-back {
+  width: fit-content;
+  margin-top: 0;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.projects-heading {
+  max-width: 58rem;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.projects-heading > p:last-child {
+  max-width: 54rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  align-items: stretch;
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 28rem;
+  flex-direction: column;
+  overflow: hidden;
+  padding: clamp(1.35rem, 3vw, 2rem);
+  border: 1px solid var(--card-tech-border);
+  border-radius: 1.25rem;
+  background: var(--card-background-strong);
+  box-shadow: var(--card-depth-shadow);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color var(--theme-transition),
+    color var(--theme-transition);
+}
+
+.project-card::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red), var(--lilac));
+  content: "";
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--card-tech-hover-border);
+  box-shadow: var(--card-depth-hover-shadow);
+}
+
+.project-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-number {
+  color: var(--red);
+  font-family: "Syne", "Montserrat", sans-serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.project-type {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.project-card h2 {
+  max-width: 16ch;
+  font-size: clamp(1.55rem, 2.5vw, 2.15rem);
+  line-height: 1.12;
+}
+
+.project-card > p {
+  margin: 1.15rem 0 1.75rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.project-link {
+  width: fit-content;
+  margin-top: auto;
+}
+
+body.dark-mode .project-card {
+  border-color: rgba(183, 157, 255, 0.28);
+  background: linear-gradient(135deg, #141414, #1c1c1c);
+}
+
+body.dark-mode .project-card:hover {
+  border-color: var(--lilac);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -1777,7 +1892,8 @@ body.dark-mode .certificate-meta li {
 .work-experience-card.reveal.is-visible,
 .lab-service-card.reveal.is-visible,
 .academic-portal-card.reveal.is-visible,
-.certificate-card.reveal.is-visible {
+.certificate-card.reveal.is-visible,
+.project-card.reveal.is-visible {
   transition:
     opacity 580ms ease,
     transform 0.25s ease,
@@ -1962,6 +2078,16 @@ body.dark-mode .certificate-meta li {
 
   .certificate-action {
     width: 100%;
+  }
+
+  .academic-projects-link,
+  .project-link,
+  .projects-back {
+    width: 100%;
+  }
+
+  .project-card {
+    min-height: auto;
   }
 
   .profile-note {

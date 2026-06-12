@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Proyectos académicos destacados desarrollados por Federico Montoro durante su formación en el ISPC y la UPC."
+    />
+    <title>Proyectos Académicos | Federico Montoro</title>
+    <link rel="icon" type="image/x-icon" href="assets/branding/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="secondary-page projects-page">
+    <script>
+      document.body.classList.add("theme-images-loading");
+
+      try {
+        if (localStorage.getItem("theme") === "dark") {
+          document.body.classList.add("dark-mode");
+        }
+      } catch (error) {
+        // The page remains usable when browser storage is unavailable.
+      }
+    </script>
+
+    <header class="site-header secondary-header">
+      <a class="brand" href="index.html#inicio" aria-label="Volver al inicio">
+        <img
+          class="brand-logo theme-image"
+          src="assets/branding/fm-navbar-light.png"
+          data-light-src="assets/branding/fm-navbar-light.png"
+          data-dark-src="assets/branding/fm-navbar-dark.png"
+          alt=""
+          width="168"
+          height="160"
+        />
+        <span>fedemontoro.com.ar</span>
+      </a>
+      <nav class="main-nav" aria-label="Navegación secundaria">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#formacion-academica">Formación</a>
+        <a href="index.html#contacto">Contacto</a>
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="Activar modo oscuro"
+          aria-pressed="false"
+          title="Activar modo oscuro"
+        >
+          <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" />
+          </svg>
+          <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" />
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <main class="secondary-main projects-main">
+      <div class="section-shell">
+        <a class="btn ghost secondary-back projects-back" href="index.html">
+          <span aria-hidden="true">←</span>
+          Volver al portfolio
+        </a>
+
+        <div class="secondary-page-heading projects-heading reveal">
+          <p class="eyebrow">Formación aplicada</p>
+          <h1>Proyectos Académicos</h1>
+          <p>
+            Trabajos prácticos y proyectos desarrollados durante mi formación en el ISPC y la UPC,
+            aplicando programación, análisis, diseño de sistemas y resolución de problemas reales.
+          </p>
+        </div>
+
+        <section class="project-grid" aria-label="Proyectos académicos destacados">
+          <article class="project-card reveal">
+            <div class="project-card-header">
+              <span class="project-number" aria-hidden="true">01</span>
+              <p class="project-type">Proyecto ABP</p>
+            </div>
+            <h2>Protección de la Información en la Era Digital</h2>
+            <p>
+              Proyecto ABP sobre seguridad informática, protección de datos, Habeas Data, Ley
+              25.326 y concientización digital.
+            </p>
+            <a
+              class="btn primary project-link"
+              href="https://abp-proteccion-informacion-era-digi-delta.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver proyecto
+            </a>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card-header">
+              <span class="project-number" aria-hidden="true">02</span>
+              <p class="project-type">Análisis de sistemas</p>
+            </div>
+            <h2>Sistemas y Organizaciones – Evidencia 2</h2>
+            <p>
+              Sitio web académico enfocado en estructuras organizacionales, organigramas,
+              evolución histórica de las organizaciones y análisis de sistemas.
+            </p>
+            <a
+              class="btn primary project-link"
+              href="https://evidencia-2-sy-o.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver proyecto
+            </a>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card-header">
+              <span class="project-number" aria-hidden="true">03</span>
+              <p class="project-type">Matemática y lógica</p>
+            </div>
+            <h2>GymManager – Matemática y Lógica</h2>
+            <p>
+              Proyecto grupal centrado en análisis lógico, validación de casos de prueba, casos
+              límite, casos de error y evaluación de resultados dentro de un sistema de gestión
+              para gimnasios.
+            </p>
+            <a
+              class="btn primary project-link"
+              href="https://gymmanager-matematica-logica.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver proyecto
+            </a>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>Federico Montoro • Transformando ideas en soluciones útiles</p>
+      <nav aria-label="Enlaces externos">
+        <a href="https://github.com/Frederick1824" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+        <a
+          href="https://www.linkedin.com/in/federico-montoro-447b86253/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+        <a href="documents/cv-federico-montoro.pdf" download>CV</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
