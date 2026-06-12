@@ -3020,3 +3020,494 @@ body.dark-mode .project-card:hover {
   }
 
 }
+
+/* Personal about page */
+.personal-about-main {
+  overflow: hidden;
+}
+
+.personal-about-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+  gap: clamp(2rem, 7vw, 6rem);
+  align-items: end;
+  padding: clamp(4.5rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem);
+}
+
+.personal-about-heading {
+  position: relative;
+}
+
+.personal-about-heading::before {
+  position: absolute;
+  z-index: -1;
+  top: -6rem;
+  left: -8rem;
+  width: 22rem;
+  height: 22rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(199, 184, 234, 0.18), transparent 68%);
+  content: "";
+  pointer-events: none;
+}
+
+.personal-about-heading h1 {
+  max-width: 8.5ch;
+  font-size: clamp(4.4rem, 9vw, 8.2rem);
+  line-height: 0.88;
+}
+
+.personal-about-heading h1::after {
+  display: block;
+  width: 4.5rem;
+  height: 3px;
+  margin-top: 1.4rem;
+  background: linear-gradient(90deg, var(--red), var(--lilac));
+  content: "";
+}
+
+.personal-about-deck {
+  max-width: 29rem;
+  margin: 0 0 0.45rem;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.personal-about-photo-section {
+  padding-bottom: clamp(4rem, 9vw, 7.5rem);
+}
+
+.personal-about-photo {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 2 / 1;
+  margin: 0;
+  border: 1px solid var(--card-tech-border);
+  border-radius: clamp(1.2rem, 2.5vw, 2rem);
+  background: var(--card-background-strong);
+  box-shadow:
+    0 28px 70px rgba(17, 17, 17, 0.14),
+    0 0 32px rgba(183, 157, 255, 0.06);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.35s ease;
+}
+
+.personal-about-photo:hover {
+  border-color: var(--card-tech-hover-border);
+  box-shadow:
+    0 34px 80px rgba(17, 17, 17, 0.17),
+    0 0 38px rgba(183, 157, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.personal-about-photo::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 48%, rgba(9, 12, 10, 0.58)),
+    linear-gradient(90deg, rgba(9, 12, 10, 0.08), transparent 45%);
+  content: "";
+  pointer-events: none;
+}
+
+.personal-about-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 58%;
+  filter: contrast(1.04) saturate(0.9);
+  transform: scale(1.01);
+  transition:
+    filter 0.35s ease,
+    transform 0.7s ease;
+}
+
+.personal-about-photo:hover img {
+  filter: contrast(1.06) saturate(0.98);
+  transform: scale(1.025);
+}
+
+.personal-about-photo figcaption {
+  position: absolute;
+  z-index: 2;
+  right: clamp(1.25rem, 3vw, 2.5rem);
+  bottom: clamp(1.25rem, 3vw, 2.25rem);
+  left: clamp(1.25rem, 3vw, 2.5rem);
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  color: #ffffff;
+}
+
+.personal-about-photo figcaption span {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.personal-about-photo figcaption strong {
+  max-width: 23rem;
+  font-family: "Syne", "Montserrat", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  line-height: 1.25;
+  text-align: right;
+}
+
+.personal-about-story {
+  padding: clamp(5rem, 10vw, 8.5rem) 0;
+  border-block: 1px solid var(--line);
+  background: var(--section-background);
+  transition:
+    background-color var(--theme-transition),
+    border-color var(--theme-transition);
+}
+
+.personal-about-story-layout {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(3rem, 8vw, 7rem);
+  align-items: start;
+}
+
+.personal-about-story-heading {
+  position: sticky;
+  top: 8rem;
+}
+
+.personal-about-story-heading h2,
+.personal-about-pillars-heading h2 {
+  max-width: 12ch;
+  font-size: clamp(2.5rem, 5vw, 4.7rem);
+}
+
+.personal-about-story-line {
+  width: min(100%, 15rem);
+  height: 1px;
+  margin-top: 2rem;
+  background: linear-gradient(90deg, var(--red), var(--lilac), transparent);
+}
+
+.personal-about-copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.personal-about-paragraph {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: clamp(1.25rem, 2.6vw, 2rem);
+  border: 1px solid var(--card-tech-border);
+  border-radius: 1.2rem;
+  background: var(--card-background-strong);
+  box-shadow: 0 14px 38px rgba(17, 17, 17, 0.055);
+  transition:
+    transform 0.25s ease,
+    background-color var(--theme-transition),
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.personal-about-paragraph:hover {
+  border-color: var(--card-tech-hover-border);
+  box-shadow: var(--card-depth-shadow);
+  transform: translateX(4px);
+}
+
+.personal-about-paragraph > span {
+  color: var(--red);
+  font-family: "Syne", "Montserrat", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.personal-about-paragraph p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(0.98rem, 1.3vw, 1.08rem);
+  line-height: 1.78;
+}
+
+.personal-about-paragraph-featured {
+  border-color: var(--accent-border-soft);
+  background:
+    linear-gradient(135deg, rgba(198, 40, 45, 0.045), rgba(199, 184, 234, 0.09)),
+    var(--card-background-strong);
+}
+
+.personal-about-paragraph-featured p,
+.personal-about-paragraph-closing p {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.personal-about-paragraph-closing {
+  border-color: rgba(199, 184, 234, 0.65);
+}
+
+.personal-about-pillars-section {
+  padding: clamp(5rem, 10vw, 8rem) 0;
+}
+
+.personal-about-pillars-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.personal-about-pillars-heading .eyebrow {
+  align-self: flex-start;
+}
+
+.personal-about-pillars-heading h2 {
+  max-width: 15ch;
+}
+
+.personal-about-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.personal-about-pillar {
+  position: relative;
+  display: flex;
+  min-height: 18rem;
+  flex-direction: column;
+  overflow: hidden;
+  padding: clamp(1.25rem, 2.4vw, 1.7rem);
+  border: 1px solid var(--card-tech-border);
+  border-radius: 1.25rem;
+  background: var(--card-background-strong);
+  box-shadow: var(--card-depth-shadow);
+  transition:
+    transform 0.3s ease,
+    background-color var(--theme-transition),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.personal-about-pillar::before {
+  position: absolute;
+  inset: auto -3rem -4rem auto;
+  width: 10rem;
+  height: 10rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  content: "";
+  opacity: 0.7;
+}
+
+.personal-about-pillar:hover {
+  border-color: var(--card-tech-hover-border);
+  box-shadow: var(--card-depth-hover-shadow);
+  transform: translateY(-5px);
+}
+
+.personal-about-pillar-icon {
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--pill-background);
+  font-size: 1.55rem;
+  line-height: 1;
+  transition:
+    background-color var(--theme-transition),
+    border-color var(--theme-transition),
+    transform 0.3s ease;
+}
+
+.personal-about-pillar:hover .personal-about-pillar-icon {
+  transform: rotate(-4deg) scale(1.06);
+}
+
+.personal-about-pillar h3 {
+  margin-top: auto;
+  font-size: clamp(1.35rem, 2.2vw, 1.8rem);
+}
+
+.personal-about-pillar p {
+  position: relative;
+  z-index: 1;
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.personal-about-pillar:nth-child(1) {
+  border-top-color: rgba(183, 157, 255, 0.7);
+}
+
+.personal-about-pillar:nth-child(2) {
+  border-top-color: rgba(198, 40, 45, 0.65);
+}
+
+.personal-about-pillar:nth-child(3) {
+  border-top-color: rgba(90, 142, 255, 0.65);
+}
+
+.personal-about-pillar:nth-child(4) {
+  border-top-color: rgba(76, 145, 92, 0.7);
+}
+
+.personal-about-closing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(4rem, 8vw, 7rem);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid var(--card-tech-border);
+  border-radius: 1.4rem;
+  background:
+    linear-gradient(110deg, rgba(199, 184, 234, 0.13), rgba(198, 40, 45, 0.04)),
+    var(--card-background-strong);
+  box-shadow: var(--card-depth-shadow);
+}
+
+.personal-about-closing p {
+  max-width: 17ch;
+  margin: 0;
+  font-family: "Syne", "Montserrat", sans-serif;
+  font-size: clamp(1.7rem, 4vw, 3.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+}
+
+body.dark-mode .personal-about-photo {
+  box-shadow:
+    0 30px 75px rgba(0, 0, 0, 0.42),
+    0 0 34px rgba(183, 157, 255, 0.08);
+}
+
+body.dark-mode .personal-about-photo img {
+  filter: contrast(1.07) saturate(0.82) brightness(0.88);
+}
+
+body.dark-mode .personal-about-paragraph-featured {
+  background:
+    linear-gradient(135deg, rgba(255, 43, 43, 0.055), rgba(183, 157, 255, 0.07)),
+    #1b1b1b;
+}
+
+@media (max-width: 1050px) {
+  .personal-about-pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .personal-about-pillar {
+    min-height: 15rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .personal-about-hero,
+  .personal-about-story-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .personal-about-hero {
+    gap: 1.5rem;
+  }
+
+  .personal-about-deck {
+    max-width: 42rem;
+  }
+
+  .personal-about-story-heading {
+    position: static;
+    max-width: 42rem;
+  }
+
+  .personal-about-photo {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 640px) {
+  .personal-about-hero {
+    padding: 3.25rem 0 2.5rem;
+  }
+
+  .personal-about-heading::before {
+    display: none;
+  }
+
+  .personal-about-heading h1 {
+    max-width: 8ch;
+    font-size: clamp(3.35rem, 17vw, 4.7rem);
+  }
+
+  .personal-about-photo-section {
+    width: 100%;
+    padding-bottom: 4rem;
+  }
+
+  .personal-about-photo {
+    aspect-ratio: 4 / 3;
+    border-radius: 1rem;
+    border-inline: 0;
+  }
+
+  .personal-about-photo img {
+    object-position: 48% 60%;
+  }
+
+  .personal-about-photo figcaption {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .personal-about-photo figcaption strong {
+    max-width: 19rem;
+    text-align: left;
+  }
+
+  .personal-about-story-heading h2,
+  .personal-about-pillars-heading h2 {
+    font-size: clamp(2.15rem, 10vw, 2.85rem);
+  }
+
+  .personal-about-paragraph {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .personal-about-paragraph:hover {
+    transform: translateY(-3px);
+  }
+
+  .personal-about-pillars-heading,
+  .personal-about-closing {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .personal-about-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .personal-about-pillar {
+    min-height: 14rem;
+  }
+
+  .personal-about-closing .btn {
+    width: 100%;
+  }
+}
