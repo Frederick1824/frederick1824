@@ -1792,11 +1792,49 @@ body.dark-mode .certificate-meta li {
   margin-top: 0.75rem;
 }
 
+.project-institution-section + .project-institution-section {
+  margin-top: clamp(4rem, 8vw, 7rem);
+}
+
+.project-institution-heading {
+  max-width: 55rem;
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.8rem);
+}
+
+.project-institution-heading .eyebrow {
+  margin-bottom: 0.55rem;
+}
+
+.project-institution-heading h2 {
+  max-width: none;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.project-institution-heading h2::after {
+  display: block;
+  width: 3.2rem;
+  height: 2px;
+  margin-top: 0.65rem;
+  background: var(--red);
+  content: "";
+}
+
+.project-institution-heading > p:last-child:not(.eyebrow) {
+  max-width: 52rem;
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(0.9rem, 2vw, 1.25rem);
   align-items: stretch;
+}
+
+.project-grid-upc {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .project-card {
@@ -1958,6 +1996,10 @@ body.dark-mode .project-card:hover {
     width: calc(50% - 0.5rem);
     grid-column: 1 / -1;
     justify-self: center;
+  }
+
+  .project-grid-upc {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
