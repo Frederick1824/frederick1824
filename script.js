@@ -273,14 +273,17 @@ const normalizeText = (text) => text.replace(/\s+/g, " ").trim();
 
 const getEnglishText = (spanishText) => translations.en[normalizeText(spanishText)];
 
+const getLanguageToggleLabel = (currentLang) => currentLang === "es" ? "🇺🇸 EN" : "🇪🇸 ES";
+
 const updateLanguageToggle = (lang) => {
   if (!(languageToggle instanceof HTMLButtonElement)) {
     return;
   }
 
-  const nextLanguage = lang === "en" ? "es" : "en";
+  const currentLang = lang === "en" ? "en" : defaultLanguage;
+  const nextLanguage = currentLang === "en" ? "es" : "en";
   languageToggle.dataset.noI18n = "true";
-  languageToggle.textContent = nextLanguage === "en" ? "\u{1F1FA}\u{1F1F8} EN" : "\u{1F1EA}\u{1F1F8} ES";
+  languageToggle.textContent = getLanguageToggleLabel(currentLang);
   languageToggle.setAttribute(
     "aria-label",
     nextLanguage === "en" ? "Switch to English" : "Cambiar a español",
@@ -366,9 +369,6 @@ const setLanguage = (lang) => {
   }
 
   updateLanguageToggle(nextLanguage);
-  if (languageToggle instanceof HTMLButtonElement) {
-    languageToggle.textContent = nextLanguage === "en" ? "\u{1F1EA}\u{1F1F8} ES" : "\u{1F1FA}\u{1F1F8} EN";
-  }
   window.dispatchEvent(new CustomEvent("languagechange", { detail: { language: nextLanguage } }));
 };
 const cursorGlowQuery = window.matchMedia(

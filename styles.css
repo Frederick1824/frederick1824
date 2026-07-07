@@ -335,6 +335,7 @@ a {
   background: var(--card-background);
   color: var(--ink);
   font: inherit;
+  font-family: "Inter", "Montserrat", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
   font-size: 0.82rem;
   font-weight: 800;
   gap: 0.35rem;
