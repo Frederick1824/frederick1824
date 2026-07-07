@@ -310,6 +310,10 @@ const translateTextNode = (node, lang) => {
     return;
   }
 
+  if (parent.closest("[data-i18n]")) {
+    return;
+  }
+
   const source = parent.dataset?.i18nSource || normalizeText(node.textContent || "");
   const translated = lang === "en" ? getEnglishText(source) : source;
 
