@@ -3562,3 +3562,65 @@ body.dark-mode .personal-about-paragraph-featured {
     width: 100%;
   }
 }
+
+/* Structural card equalization across languages and breakpoints. */
+.about-facts,
+.lab-service-grid,
+.academic-portal-grid,
+.project-grid,
+.personal-about-pillars,
+.certificate-grid {
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+}
+
+.card,
+.about-fact,
+.lab-service-card,
+.academic-portal-card,
+.project-card,
+.personal-about-pillar,
+.certificate-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-content,
+.academic-portal-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.card h3,
+.about-fact h3,
+.lab-service-card h3,
+.academic-portal-content h3,
+.project-card h2,
+.personal-about-pillar h3,
+.certificate-card h2 {
+  display: flex;
+  min-height: 2.6em;
+  align-items: flex-end;
+}
+
+.card p,
+.about-fact p,
+.lab-service-card p,
+.personal-about-pillar p {
+  flex: 1;
+}
+
+.card-content p,
+.academic-portal-content .academic-description,
+.project-card-description {
+  flex: 1;
+}
+
+.card .btn,
+.academic-portal-link,
+.project-link,
+.certificate-action {
+  margin-top: auto;
+}
