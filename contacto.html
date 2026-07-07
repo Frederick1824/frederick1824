@@ -1,24 +1,19 @@
-<!doctype html>
+﻿<!DOCTYPE html>
+
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Formulario de contacto de Federico Montoro para consultas sobre desarrollo y soluciones digitales."
-    />
-    <title>Enviar mensaje | Federico Montoro</title>
-    <link rel="icon" type="image/x-icon" href="assets/branding/favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body class="secondary-page contact-page">
-    <script>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Formulario de contacto de Federico Montoro para consultas sobre desarrollo y soluciones digitales." data-i18n-meta="contacto.meta.description" name="description"/>
+<title>Enviar mensaje | Federico Montoro</title>
+<link href="assets/branding/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Syne:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+</head>
+<body class="secondary-page contact-page" data-page="contacto">
+<script>
       document.body.classList.add("theme-images-loading");
 
       try {
@@ -29,151 +24,80 @@
         // The page remains usable when browser storage is unavailable.
       }
     </script>
-
-    <header class="site-header secondary-header">
-      <a class="brand" href="index.html#inicio" aria-label="Volver al inicio">
-        <img
-          class="brand-logo theme-image"
-          src="assets/branding/fm-navbar-light.png"
-          data-light-src="assets/branding/fm-navbar-light.png"
-          data-dark-src="assets/branding/fm-navbar-dark.png"
-          alt=""
-          width="168"
-          height="160"
-        />
-        <span>fedemontoro.com.ar</span>
-      </a>
-      <nav class="main-nav" aria-label="Navegación secundaria">
-        <a href="index.html#inicio">Inicio</a>
-        <a href="index.html#contacto">Contacto</a>
-        <button
-          class="theme-toggle"
-          type="button"
-          aria-label="Activar modo oscuro"
-          aria-pressed="false"
-          title="Activar modo oscuro"
-        >
-          <svg class="theme-icon theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24">
-            <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" />
-          </svg>
-          <svg class="theme-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="4" />
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41" />
-          </svg>
-        </button>
-      </nav>
-    </header>
-
-    <main class="secondary-main contact-main">
-      <div class="section-shell contact-page-layout">
-        <div class="secondary-page-heading reveal">
-          <p class="eyebrow">Contacto</p>
-          <h1>Enviar mensaje</h1>
-          <p>Dejame tus datos y me contacto a la brevedad.</p>
-          <a class="secondary-back" href="index.html#contacto">
-            <span aria-hidden="true">←</span>
-            Volver a contacto
-          </a>
-        </div>
-
-        <section class="contact-form-card reveal" aria-labelledby="contact-form-title">
-          <h2 id="contact-form-title">Datos de contacto</h2>
-          <form
-            class="contact-form"
-            id="contact-form"
-            action="https://formsubmit.co/fede.montoro1824@gmail.com"
-            method="POST"
-            novalidate
-          >
-            <input
-              type="hidden"
-              name="_subject"
-              value="Nueva consulta desde fedemontoro.com.ar"
-            />
-            <input type="hidden" name="_template" value="table" />
-            <input
-              type="hidden"
-              name="_url"
-              value="https://fedemontoro.vercel.app/contacto.html"
-            />
-            <input
-              class="form-honeypot"
-              type="text"
-              name="_honey"
-              tabindex="-1"
-              autocomplete="off"
-            />
-
-            <label class="form-field">
-              <span>Nombre</span>
-              <input
-                type="text"
-                name="nombre"
-                placeholder="Tu nombre"
-                autocomplete="name"
-                required
-              />
-            </label>
-
-            <label class="form-field">
-              <span>Teléfono</span>
-              <input
-                type="tel"
-                name="telefono"
-                placeholder="Tu teléfono"
-                autocomplete="tel"
-                required
-              />
-            </label>
-
-            <label class="form-field">
-              <span>Email</span>
-              <input
-                type="email"
-                name="email"
-                placeholder="tuemail@email.com"
-                autocomplete="email"
-                required
-              />
-            </label>
-
-            <label class="form-field form-field-message">
-              <span>Mensaje</span>
-              <textarea
-                name="mensaje"
-                placeholder="Contame brevemente en qué puedo ayudarte"
-                rows="6"
-                required
-              ></textarea>
-            </label>
-
-            <button class="btn primary contact-submit" type="submit">Enviar consulta</button>
-            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-          </form>
-        </section>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <p>Federico Montoro • Transformando ideas en soluciones útiles</p>
-      <nav aria-label="Enlaces externos">
-        <a href="https://github.com/Frederick1824" target="_blank" rel="noopener noreferrer">
+<header class="site-header secondary-header">
+<a aria-label="Volver al inicio" class="brand" href="index.html#inicio">
+<img alt="" class="brand-logo theme-image" data-dark-src="assets/branding/fm-navbar-dark.png" data-light-src="assets/branding/fm-navbar-light.png" height="160" src="assets/branding/fm-navbar-light.png" width="168"/>
+<span data-i18n="index.fedemontoro.com.ar">fedemontoro.com.ar</span>
+</a>
+<nav aria-label="Navegación secundaria" class="main-nav">
+<a data-i18n="index.inicio" href="index.html#inicio">Inicio</a>
+<a data-i18n="index.contacto" href="index.html#contacto">Contacto</a>
+<button aria-label="Activar modo oscuro" aria-pressed="false" class="theme-toggle" title="Activar modo oscuro" type="button">
+<svg aria-hidden="true" class="theme-icon theme-icon-moon" viewbox="0 0 24 24">
+<path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"></path>
+</svg>
+<svg aria-hidden="true" class="theme-icon theme-icon-sun" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="4"></circle>
+<path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
+</svg>
+</button>
+<button aria-label="Switch language" class="language-toggle" title="Switch language" type="button">🇬🇧 EN</button></nav>
+</header>
+<main class="secondary-main contact-main">
+<div class="section-shell contact-page-layout">
+<div class="secondary-page-heading reveal">
+<p class="eyebrow" data-i18n="index.contacto">Contacto</p>
+<h1 data-i18n="index.enviar.mensaje">Enviar mensaje</h1>
+<p data-i18n="contacto.dejame.tus.datos.y.me.contacto.a.la.breved">Dejame tus datos y me contacto a la brevedad.</p>
+<a class="secondary-back" href="index.html#contacto">
+<span aria-hidden="true">←</span><span data-i18n="contacto.volver.a.contacto">Volver a contacto</span></a>
+</div>
+<section aria-labelledby="contact-form-title" class="contact-form-card reveal">
+<h2 data-i18n="contacto.datos.de.contacto" id="contact-form-title">Datos de contacto</h2>
+<form action="https://formsubmit.co/fede.montoro1824@gmail.com" class="contact-form" id="contact-form" method="POST" novalidate="">
+<input name="_subject" type="hidden" value="Nueva consulta desde fedemontoro.com.ar"/>
+<input name="_template" type="hidden" value="table"/>
+<input name="_url" type="hidden" value="https://fedemontoro.vercel.app/contacto.html"/>
+<input autocomplete="off" class="form-honeypot" name="_honey" tabindex="-1" type="text"/>
+<label class="form-field">
+<span data-i18n="contacto.nombre">Nombre</span>
+<input autocomplete="name" data-i18n-placeholder="contact.form.placeholder.name" name="nombre" placeholder="Tu nombre" required="" type="text"/>
+</label>
+<label class="form-field">
+<span>Teléfono</span>
+<input autocomplete="tel" data-i18n-placeholder="contact.form.placeholder.phone" name="telefono" placeholder="Tu teléfono" required="" type="tel"/>
+</label>
+<label class="form-field">
+<span data-i18n="index.email">Email</span>
+<input autocomplete="email" data-i18n-placeholder="contact.form.placeholder.email" name="email" placeholder="tuemail@email.com" required="" type="email"/>
+</label>
+<label class="form-field form-field-message">
+<span data-i18n="contacto.mensaje">Mensaje</span>
+<textarea data-i18n-placeholder="contact.form.placeholder.message" name="mensaje" placeholder="Contame brevemente en qué puedo ayudarte" required="" rows="6"></textarea>
+</label>
+<button class="btn primary contact-submit" data-i18n="contacto.enviar.consulta" type="submit">Enviar consulta</button>
+<p aria-live="polite" class="form-status" id="form-status" role="status"></p>
+</form>
+</section>
+</div>
+</main>
+<footer class="site-footer">
+<p>Federico Montoro • Transformando ideas en soluciones útiles</p>
+<nav aria-label="Enlaces externos">
+<a data-i18n="index.github" href="https://github.com/Frederick1824" rel="noopener noreferrer" target="_blank">
           GitHub
         </a>
-        <a
-          href="https://www.linkedin.com/in/federico-montoro-447b86253/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+<a data-i18n="index.linkedin" href="https://www.linkedin.com/in/federico-montoro-447b86253/" rel="noopener noreferrer" target="_blank">
           LinkedIn
         </a>
-        <a href="documents/cv-federico-montoro.pdf" download>CV</a>
-        <a href="index.html#lab">FreToKa</a>
-        <a href="index.html#contacto">Contacto</a>
-      </nav>
-    </footer>
-
-    <script src="script.js"></script>
-    <script src="contacto.js"></script>
-  </body>
+<a data-i18n="index.cv" download="" href="documents/cv-federico-montoro.pdf">CV</a>
+<a data-i18n="index.fretoka" href="index.html#lab">FreToKa</a>
+<a data-i18n="index.contacto" href="index.html#contacto">Contacto</a>
+</nav>
+</footer>
+<script src="script.js"></script>
+<script src="contacto.js"></script>
+</body>
 </html>
+
+

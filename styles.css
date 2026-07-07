@@ -322,6 +322,39 @@ a {
     transform var(--theme-transition);
 }
 
+.language-toggle {
+  display: inline-flex;
+  min-height: 2.35rem;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.35rem 0.72rem;
+  background: var(--card-background);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    background 180ms ease;
+}
+
+.language-toggle:hover {
+  border-color: var(--card-hover-border);
+  color: var(--red);
+  transform: translateY(-1px);
+}
+
+.language-toggle:focus-visible {
+  outline: 3px solid rgba(183, 157, 255, 0.4);
+  outline-offset: 3px;
+}
+
 .theme-toggle:hover {
   border-color: var(--card-hover-border);
   color: var(--red);
@@ -2807,6 +2840,12 @@ body.dark-mode .project-card:hover {
     right: 1rem;
     width: 2.25rem;
     height: 2.25rem;
+  }
+
+  .language-toggle {
+    position: absolute;
+    top: 1.25rem;
+    right: 3.85rem;
   }
 
   .section-shell {

@@ -2,11 +2,37 @@ const contactForm = document.querySelector("#contact-form");
 const formStatus = document.querySelector("#form-status");
 const contactPageUrl = "https://fedemontoro.vercel.app/contacto.html";
 
+const getContactLanguage = () => document.documentElement.lang === "en" ? "en" : "es";
+
+const contactMessages = {
+  es: {
+    required: "Completá este campo.",
+    invalid: "Revisá los campos obligatorios antes de continuar.",
+    sendingButton: "Enviando...",
+    sending: "Enviando mensaje...",
+    success: "Mensaje enviado correctamente. Te responderé a la brevedad.",
+    activation:
+      "Falta activar el formulario. Revisá el correo de confirmación de FormSubmit.",
+    error: "No se pudo enviar el mensaje. Intentá nuevamente en unos minutos.",
+  },
+  en: {
+    required: "Please complete this field.",
+    invalid: "Please review the required fields before continuing.",
+    sendingButton: "Sending...",
+    sending: "Sending message...",
+    success: "Message sent successfully. I will reply shortly.",
+    activation: "The form still needs activation. Please check the FormSubmit confirmation email.",
+    error: "The message could not be sent. Please try again in a few minutes.",
+  },
+};
+
+const contactText = (key) => contactMessages[getContactLanguage()][key];
+
 if (contactForm instanceof HTMLFormElement && formStatus instanceof HTMLElement) {
   const requiredFields = Array.from(contactForm.querySelectorAll("[required]"));
   const submitButton = contactForm.querySelector('button[type="submit"]');
-  const submitButtonLabel =
-    submitButton instanceof HTMLButtonElement ? submitButton.textContent : "Enviar consulta";
+  const getSubmitButtonLabel = () =>
+    submitButton instanceof HTMLButtonElement ? submitButton.textContent : contactText("error");
 
   requiredFields.forEach((field) => {
     field.addEventListener("input", () => {
@@ -23,32 +49,33 @@ if (contactForm instanceof HTMLFormElement && formStatus instanceof HTMLElement)
     event.preventDefault();
 
     requiredFields.forEach((field) => {
-      field.setCustomValidity(field.value.trim() ? "" : "Completá este campo.");
+      field.setCustomValidity(field.value.trim() ? "" : contactText("required"));
     });
 
     if (!contactForm.reportValidity()) {
-      formStatus.textContent = "Revisá los campos obligatorios antes de continuar.";
+      formStatus.textContent = contactText("invalid");
       formStatus.className = "form-status is-error";
       return;
     }
 
+    const submitButtonLabel = getSubmitButtonLabel();
     const formData = new FormData(contactForm);
     const contactData = Object.fromEntries(formData.entries());
     contactData._url = contactPageUrl;
 
     if (submitButton instanceof HTMLButtonElement) {
       submitButton.disabled = true;
-      submitButton.textContent = "Enviando...";
+      submitButton.textContent = contactText("sendingButton");
     }
 
     contactForm.setAttribute("aria-busy", "true");
-    formStatus.textContent = "Enviando mensaje...";
+    formStatus.textContent = contactText("sending");
     formStatus.className = "form-status";
 
     try {
       await submitContactForm(contactData);
       contactForm.reset();
-      formStatus.textContent = "Mensaje enviado correctamente. Te responderé a la brevedad.";
+      formStatus.textContent = contactText("success");
       formStatus.className = "form-status is-success";
     } catch (error) {
       console.error("Contact form submission failed:", error);
@@ -102,8 +129,8 @@ function getSubmissionErrorMessage(error) {
   const providerMessage = error instanceof Error ? error.message : "";
 
   if (/confirm|activate|activation|verify/i.test(providerMessage)) {
-    return "Falta activar el formulario. Revisá el correo de confirmación de FormSubmit.";
+    return contactText("activation");
   }
 
-  return "No se pudo enviar el mensaje. Intentá nuevamente en unos minutos.";
+  return contactText("error");
 }
