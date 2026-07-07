@@ -324,6 +324,7 @@ a {
 
 .language-toggle {
   display: inline-flex;
+  min-width: 5.15rem;
   min-height: 2.35rem;
   align-items: center;
   justify-content: center;
@@ -336,6 +337,9 @@ a {
   font: inherit;
   font-size: 0.82rem;
   font-weight: 800;
+  gap: 0.35rem;
+  line-height: 1;
+  white-space: nowrap;
   cursor: pointer;
   transition:
     transform 180ms ease,
@@ -2234,10 +2238,12 @@ body.dark-mode .about-page-closing {
 }
 
 .contact-page-layout .secondary-page-heading h1 {
-  max-width: 32rem;
-  font-size: clamp(3rem, 5.5vw, 4.75rem);
-  line-height: 0.98;
-  overflow-wrap: anywhere;
+  max-width: min(100%, 11ch);
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.95;
+  overflow-wrap: normal;
+  text-wrap: balance;
+  word-break: normal;
 }
 
 .contact-page-layout .secondary-page-heading > p:not(.eyebrow) {
@@ -2252,7 +2258,9 @@ body.dark-mode .about-page-closing {
   z-index: 2;
   width: 100%;
   max-width: 47.5rem;
+  align-self: start;
   justify-self: end;
+  margin-top: 0;
   padding: clamp(1.5rem, 2.6vw, 2.5rem);
 }
 
@@ -2767,8 +2775,9 @@ body.dark-mode .project-card:hover {
   }
 
   .contact-page-layout .secondary-page-heading h1 {
-    max-width: 32rem;
-    font-size: clamp(2.8rem, 9vw, 4.5rem);
+    max-width: min(100%, 11ch);
+    font-size: clamp(3rem, 9vw, 4.8rem);
+    line-height: 0.95;
   }
 
   .contact-form-card {
@@ -2969,7 +2978,8 @@ body.dark-mode .project-card:hover {
   }
 
   .contact-page-layout .secondary-page-heading h1 {
-    font-size: clamp(2.65rem, 12vw, 3.5rem);
+    font-size: clamp(2.7rem, 12vw, 3.6rem);
+    line-height: 0.95;
   }
 
   .certificate-card h2 {
