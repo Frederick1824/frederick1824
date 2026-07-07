@@ -1,6 +1,6 @@
 const revealItems = document.querySelectorAll(".reveal");
 const themeToggle = document.querySelector(".theme-toggle");
-const languageToggle = document.querySelector(".language-toggle");
+const languageToggle = document.getElementById("languageToggle");
 const themeImages = document.querySelectorAll("[data-light-src][data-dark-src]");
 const themeStorageKey = "theme";
 const languageStorageKey = "language";
@@ -273,22 +273,20 @@ const normalizeText = (text) => text.replace(/\s+/g, " ").trim();
 
 const getEnglishText = (spanishText) => translations.en[normalizeText(spanishText)];
 
-const getLanguageToggleLabel = (currentLang) => currentLang === "es" ? "🇺🇸 EN" : "🇪🇸 ES";
-
 const updateLanguageToggle = (lang) => {
-  if (!(languageToggle instanceof HTMLButtonElement)) {
+  const languageButton = document.getElementById("languageToggle");
+
+  if (!(languageButton instanceof HTMLButtonElement)) {
     return;
   }
 
   const currentLang = lang === "en" ? "en" : defaultLanguage;
-  const nextLanguage = currentLang === "en" ? "es" : "en";
-  languageToggle.dataset.noI18n = "true";
-  languageToggle.textContent = getLanguageToggleLabel(currentLang);
-  languageToggle.setAttribute(
+  languageButton.textContent = currentLang === "es" ? "🇺🇸 EN" : "🇪🇸 ES";
+  languageButton.setAttribute(
     "aria-label",
-    nextLanguage === "en" ? "Switch to English" : "Cambiar a español",
+    currentLang === "es" ? "Switch to English" : "Cambiar a español",
   );
-  languageToggle.title = nextLanguage === "en" ? "Switch to English" : "Cambiar a español";
+  languageButton.title = currentLang === "es" ? "Switch to English" : "Cambiar a español";
 };
 
 const updateMetaLanguage = (lang) => {
@@ -479,7 +477,9 @@ updateThemeImages(initialDarkMode).finally(() => {
 });
 updateThemeToggle();
 preloadThemeImages();
-setLanguage(getStoredLanguage());
+const currentLanguage = getStoredLanguage();
+setLanguage(currentLanguage);
+updateLanguageToggle(currentLanguage);
 
 themeToggle?.addEventListener("click", () => {
   const isDarkMode = document.body.classList.toggle("dark-mode");
