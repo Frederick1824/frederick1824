@@ -289,6 +289,23 @@ const updateLanguageToggle = (lang) => {
   languageButton.title = currentLang === "es" ? "Switch to English" : "Cambiar a español";
 };
 
+const updateCvDownloadLinks = (lang) => {
+  const isEnglish = lang === "en";
+  const href = isEnglish
+    ? "assets/cv/federico-montoro-cv-en.pdf"
+    : "assets/cv/federico-montoro-cv-es.pdf";
+  const fileName = isEnglish ? "Federico-Montoro-CV-EN.pdf" : "Federico-Montoro-CV-ES.pdf";
+
+  document.querySelectorAll(".cv-download").forEach((link) => {
+    if (!(link instanceof HTMLAnchorElement)) {
+      return;
+    }
+
+    link.href = href;
+    link.setAttribute("download", fileName);
+  });
+};
+
 const updateMetaLanguage = (lang) => {
   const meta = pageMeta[pageName]?.[lang] || pageMeta.index[lang];
   document.title = meta.title;
@@ -371,6 +388,7 @@ const setLanguage = (lang) => {
   }
 
   updateLanguageToggle(nextLanguage);
+  updateCvDownloadLinks(nextLanguage);
   window.dispatchEvent(new CustomEvent("languagechange", { detail: { language: nextLanguage } }));
 };
 const cursorGlowQuery = window.matchMedia(
