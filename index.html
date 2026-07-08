@@ -46,7 +46,10 @@
 <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path>
 </svg>
 </button>
-<button aria-label="Switch language" class="language-toggle" id="languageToggle" title="Switch language" type="button"></button></nav>
+<div aria-label="Selector de idioma" class="language-toggle" data-active-lang="es" id="languageToggle" role="group">
+<button aria-pressed="true" class="language-option is-active" data-lang-option="es" type="button">🇦🇷 <span>AR ES</span></button>
+<button aria-pressed="false" class="language-option" data-lang-option="en" type="button">🇺🇸 <span>US EN</span></button>
+</div></nav>
 </header>
 <main>
 <section class="hero section-shell" id="inicio">
@@ -70,6 +73,12 @@
 </svg>
 <span data-i18n="index.sobre.mi">Sobre mí</span>
             </a>
+<a class="btn lab-cta" href="https://ftk-lab.vercel.app/" rel="noopener noreferrer" target="_blank">
+<svg aria-hidden="true" class="btn-icon" viewbox="0 0 24 24">
+<path d="M10 2v6.5L4.8 18.4A2.4 2.4 0 0 0 6.9 22h10.2a2.4 2.4 0 0 0 2.1-3.6L14 8.5V2"></path>
+<path d="M8 2h8"></path>
+<path d="M7.5 15h9"></path>
+</svg><span data-i18n="index.entrar.al.lab">Entrar al Lab</span></a>
 </div>
 </div>
 <aside aria-label="Tarjeta personal" class="hero-card reveal">

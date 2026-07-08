@@ -78,6 +78,7 @@ const textTranslations = {
   "Formación": "Education",
   "Contacto": "Contact",
   "Ver GitHub": "View GitHub",
+  "Entrar al Lab": "Enter the Lab",
   "Ver LinkedIn": "View LinkedIn",
   "Descargar CV": "Download CV",
   "Enviar mensaje": "Send message",
@@ -274,19 +275,28 @@ const normalizeText = (text) => text.replace(/\s+/g, " ").trim();
 const getEnglishText = (spanishText) => translations.en[normalizeText(spanishText)];
 
 const updateLanguageToggle = (lang) => {
-  const languageButton = document.getElementById("languageToggle");
+  const languageSelector = document.getElementById("languageToggle");
 
-  if (!(languageButton instanceof HTMLButtonElement)) {
+  if (!(languageSelector instanceof HTMLElement)) {
     return;
   }
 
   const currentLang = lang === "en" ? "en" : defaultLanguage;
-  languageButton.textContent = currentLang === "es" ? "🇺🇸 EN" : "🇪🇸 ES";
-  languageButton.setAttribute(
+  languageSelector.dataset.activeLang = currentLang;
+  languageSelector.setAttribute(
     "aria-label",
-    currentLang === "es" ? "Switch to English" : "Cambiar a español",
+    currentLang === "es" ? "Selector de idioma: español activo" : "Language selector: English active",
   );
-  languageButton.title = currentLang === "es" ? "Switch to English" : "Cambiar a español";
+
+  languageSelector.querySelectorAll("[data-lang-option]").forEach((option) => {
+    if (!(option instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const isActive = option.dataset.langOption === currentLang;
+    option.classList.toggle("is-active", isActive);
+    option.setAttribute("aria-pressed", String(isActive));
+  });
 };
 
 const updateCvDownloadLinks = (lang) => {
@@ -516,9 +526,15 @@ themeToggle?.addEventListener("click", () => {
   updateThemeToggle();
 });
 
-languageToggle?.addEventListener("click", () => {
-  const currentLanguage = document.documentElement.lang === "en" ? "en" : defaultLanguage;
-  setLanguage(currentLanguage === "en" ? "es" : "en");
+languageToggle?.addEventListener("click", (event) => {
+  const option = event.target instanceof Element ? event.target.closest("[data-lang-option]") : null;
+
+  if (!(option instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  const nextLanguage = option.dataset.langOption === "en" ? "en" : defaultLanguage;
+  setLanguage(nextLanguage);
 });
 
 const observer = new IntersectionObserver(
