@@ -1180,6 +1180,36 @@ body.dark-mode .work-experience-strengths li {
   align-items: stretch;
 }
 
+.lab-cta-panel {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.lab-entry-button {
+  box-shadow: 0 14px 30px var(--accent-shadow);
+}
+
+.lab-slogan {
+  margin: 1.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.lab-slogan::before {
+  display: block;
+  width: 8.5rem;
+  height: 1px;
+  margin-bottom: 0.9rem;
+  background: linear-gradient(90deg, var(--red), var(--lilac));
+  border-radius: 999px;
+  content: "";
+}
+
 .lab-service-card {
   position: relative;
   display: flex;
