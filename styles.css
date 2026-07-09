@@ -1092,8 +1092,7 @@ body.dark-mode .work-experience-strengths li {
   position: relative;
 }
 
-.section-heading h2::after,
-.lab-copy h2::after {
+.section-heading h2::after {
   display: block;
   width: 3.2rem;
   height: 2px;
@@ -1137,6 +1136,15 @@ body.dark-mode .work-experience-strengths li {
 
 .lab-copy h2 {
   max-width: none;
+}
+
+.lab-branding-logo {
+  display: block;
+  width: min(100%, 480px);
+  max-width: 480px;
+  height: auto;
+  margin-top: 0.55rem;
+  object-fit: contain;
 }
 
 .lab-copy .lab-subtitle {
