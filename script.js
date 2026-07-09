@@ -79,6 +79,8 @@ const textTranslations = {
   "Contacto": "Contact",
   "Ver GitHub": "View GitHub",
   "Entrar al Lab": "Enter the Lab",
+  "🧪 Explorar Lab": "🧪 Explore Lab",
+  "Pequeño laboratorio. Grandes soluciones.": "Small lab. Big solutions.",
   "Ver LinkedIn": "View LinkedIn",
   "Descargar CV": "Download CV",
   "Enviar mensaje": "Send message",

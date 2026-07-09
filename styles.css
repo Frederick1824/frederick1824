@@ -569,6 +569,25 @@ h2 {
   margin-top: 2rem;
 }
 
+.hero-lab-note {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+.hero-lab-note::before {
+  display: inline-block;
+  width: 2.35rem;
+  height: 2px;
+  margin-right: 0.6rem;
+  background: linear-gradient(90deg, var(--red), var(--lilac));
+  border-radius: 999px;
+  vertical-align: middle;
+  content: "";
+}
+
 .btn {
   display: inline-flex;
   min-height: 2.9rem;
