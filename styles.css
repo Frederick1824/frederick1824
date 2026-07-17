@@ -856,6 +856,15 @@ h2 {
   margin-bottom: 0;
 }
 
+.about-quote {
+  margin: 1.75rem 0 0;
+  padding: 0.15rem 0 0.15rem 1.25rem;
+  border-left: 2px solid var(--red);
+  color: var(--text);
+  font-size: 1.12rem;
+  font-style: italic;
+}
+
 .about-facts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

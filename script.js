@@ -92,18 +92,8 @@ const textTranslations = {
   "Perfil Profesional": "Professional Profile",
   "Backend · Full-Stack · Procesos y análisis operativo":
     "Backend · Full-Stack · Processes and operational analysis",
-  "Mi nombre es Federico Montoro y actualmente me encuentro desarrollando mi formación en tecnología y desarrollo de software, combinando estudios académicos, proyectos prácticos y aprendizaje continuo.":
-    "My name is Federico Montoro, and I am currently building my path in technology and software development through academic study, practical projects, and continuous learning.",
-  "Inicié mi recorrido en programación en 2025 cursando la Tecnicatura Universitaria en Programación Full Stack en la Universidad Provincial de Córdoba. Posteriormente amplié mi formación incorporando la Tecnicatura Superior en Desarrollo de Software del Instituto Superior Politécnico Córdoba, complementando este proceso con cursos, certificaciones y programas de formación continua dictados por distintas instituciones, entre ellas la Universidad Nacional de Córdoba.":
-    "I began my programming journey in 2025 through the University Technician Degree in Full Stack Programming at Universidad Provincial de Córdoba. Later, I expanded my academic development by joining the Higher Technical Degree in Software Development at Instituto Superior Politécnico Córdoba, complementing this process with courses, certifications, and continuous training programs from different institutions, including Universidad Nacional de Córdoba.",
-  "Antes de ingresar al mundo del desarrollo construí una sólida trayectoria profesional vinculada a Customer Success, Customer Experience, procesos comerciales y análisis operativo. Durante esos años desarrollé habilidades de comunicación, gestión de clientes, resolución de problemas, orientación a resultados y mejora continua, participando activamente en la construcción de experiencias positivas para usuarios y clientes.":
-    "Before entering the software development field, I built a strong professional background in Customer Success, Customer Experience, commercial processes, and operational analysis. During those years, I developed skills in communication, client management, problem solving, results orientation, and continuous improvement, actively contributing to positive experiences for users and clients.",
-  "Esa experiencia me permite aportar una visión integral que combina tecnología, negocio y personas. No solo me interesa cómo funciona una solución digital, sino también qué problema resuelve, cómo impacta en quienes la utilizan y de qué manera puede generar valor real para una organización.":
-    "That experience allows me to bring an integrated perspective that connects technology, business, and people. I am interested not only in how a digital solution works, but also in the problem it solves, how it affects the people who use it, and how it can create real value for an organization.",
-  "Me apasiona el desarrollo de soluciones centradas en el usuario, la optimización de procesos y la construcción de herramientas simples, útiles y escalables. Disfruto trabajar en equipo, aprender de manera constante y transformar ideas en proyectos concretos que mejoren la experiencia de las personas.":
-    "I am passionate about user-centered solutions, process optimization, and building simple, useful, and scalable tools. I enjoy teamwork, constant learning, and turning ideas into concrete projects that improve people’s experiences.",
-  "Actualmente continúo fortaleciendo mi perfil en áreas como desarrollo Full Stack, bases de datos, análisis funcional, Customer Success y entornos B2B SaaS, participando además en iniciativas propias como FreToKa Lab, donde exploro tecnologías, metodologías y soluciones aplicadas a necesidades reales.":
-    "I am currently strengthening my profile in areas such as Full Stack development, databases, functional analysis, Customer Success, and B2B SaaS environments, while also working on personal initiatives such as FreToKa Lab, where I explore technologies, methodologies, and solutions applied to real needs.",
+  '"La mejor tecnología es la que simplifica el trabajo de las personas y resuelve necesidades concretas."':
+    '"The best technology is the kind that simplifies people’s work and addresses concrete needs."',
   "Formación académica": "Academic background",
   "Formación y desarrollo profesional.": "Education and professional development.",
   "Carreras, certificaciones y actualización continua para una formación tecnológica integral.":
@@ -273,6 +263,15 @@ const translations = {
   en: textTranslations,
 };
 
+const htmlTranslations = {
+  "professional-intro":
+    'My name is <strong>Federico Montoro</strong>, and I work in software development with a focus on <strong>solving real problems</strong>. I began my technical education in 2025 and am currently pursuing the <strong>University Technical Degree in Full Stack Programming (UPC)</strong> and the <strong>Higher Technical Degree in Software Development (ISPC)</strong>, while continuing my education at <strong>Universidad Nacional de Córdoba</strong>.',
+  "professional-experience":
+    'Before moving into development, I worked for several years in <strong>Customer Success</strong>, <strong>Customer Experience (CX)</strong>, customer service, and <strong>operational analysis</strong>. That experience taught me how processes work within an organization, how to identify real user needs, and how to contribute to the <strong>continuous improvement of processes and operations</strong>.',
+  "professional-present":
+    'Today, I apply that experience to software development by building <strong>simple, useful, and scalable tools</strong> that create value for both people and businesses. That same approach drives <strong>FTK Lab</strong>, my space for experimentation and development, where I design solutions focused on <strong>automation</strong>, <strong>digitization</strong>, and <strong>productivity for professionals and SMEs</strong>.',
+};
+
 const normalizeText = (text) => text.replace(/\s+/g, " ").trim();
 
 const getEnglishText = (spanishText) => translations.en[normalizeText(spanishText)];
@@ -336,7 +335,7 @@ const translateTextNode = (node, lang) => {
     return;
   }
 
-  if (parent.closest("[data-no-i18n]")) {
+  if (parent.closest("[data-no-i18n], [data-i18n-html]")) {
     return;
   }
 
@@ -371,6 +370,14 @@ const setLanguage = (lang) => {
 
     element.dataset.i18nSource = source;
     element.textContent = translated;
+  });
+
+  document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+    const source = element.dataset.i18nHtmlSource || element.innerHTML;
+    const key = element.dataset.i18nHtml;
+
+    element.dataset.i18nHtmlSource = source;
+    element.innerHTML = nextLanguage === "en" ? htmlTranslations[key] || source : source;
   });
 
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
